@@ -26,6 +26,10 @@ export function flyTo(map, { geometry, properties }) {
     Number
   );
 
+  if (!options.zoom) {
+    options.zoom = map.getMaxZoom();
+  }
+
   options.center = geometry.coordinates;
 
   map.flyTo(options);
@@ -39,7 +43,7 @@ and use that.
 export function fitBounds(map, feature) {
   const options = extractOptions(
     properties,
-    ["zoom", "bearing", "pitch", "duration", "padding"],
+    ["maxZoom", "bearing", "pitch", "duration", "padding"],
     Number
   );
 
@@ -48,4 +52,5 @@ export function fitBounds(map, feature) {
   map.fitBounds(bounds, options);
 }
 
+// noop is the best action
 export function noop() {}
