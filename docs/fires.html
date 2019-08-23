@@ -29,19 +29,36 @@
     <div id="map"></div>
     <script src="ulysses.umd.js"></script>
     <script>
-      var story;
+      //var story;
       mapboxgl.accessToken =
         "pk.eyJ1IjoidXNhdG9kYXlncmFwaGljcyIsImEiOiJ0S3BGdndrIn0.5juF5LWz_GRcndian32tZA";
 
-      var map = new mapboxgl.Map({
+      var map = (window.map = new mapboxgl.Map({
         container: "map", // container id
         style: "mapbox://styles/chrisamico/cjpwpqryr121e2rkbnxyna4rq" // fires 2018
+      }));
+
+      var story = (window.story = new Ulysses({ map, steps: [] }));
+
+      window.addEventListener("keydown", e => {
+        if (e.key === "ArrowLeft") {
+          story.previous();
+        }
+
+        if (e.key === "ArrowRight") {
+          story.next();
+        }
+
+        if (e.key.match(/\d{1}/)) {
+          story.step(+e.key);
+        }
       });
 
       fetch("./data/fires-2018.json")
         .then(r => r.json())
         .then(fires => {
-          story = new Ulysses({ map, steps: fires });
+          story.steps = fires;
+          //story.next();
         });
     </script>
   </body>

@@ -7,35 +7,32 @@
       name="viewport"
       content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
-    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.js"></script>
-    <link
-      href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.css"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      #map {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-      }
-    </style>
+    <style></style>
   </head>
   <body>
-    <div id="map"></div>
-    <script>
-      mapboxgl.accessToken =
-        "pk.eyJ1IjoidXNhdG9kYXlncmFwaGljcyIsImEiOiJ0S3BGdndrIn0.5juF5LWz_GRcndian32tZA";
-      var map = new mapboxgl.Map({
-        container: "map", // container id
-        style: "mapbox://styles/mapbox/streets-v11", // stylesheet location
-        center: [-71.057083, 42.361145], // starting position [lng, lat]
-        zoom: 9 // starting zoom
-      });
-    </script>
+    <h1>Examples:</h1>
+    <ul>
+      <li>
+        <h2><a href="./fires.html">Biggest wildfires of 2018</a></h2>
+        <p>
+          Use the left and right arrow keys to move through the 10 largest
+          wildfires for 2018. Use numbers 0 through 9 to jump to a specific
+          fire.
+        </p>
+      </li>
+      <li>
+        <h2><a href="./innout.html">A tour of every In-N-Out Burger</a></h2>
+        <p>
+          Jump to a new In-N-Out location every few seconds. Hit the spacebar to
+          stop and start.
+        </p>
+        <p>
+          Source:
+          <a href="https://github.com/alltheplaces/alltheplaces"
+            >All the Places</a
+          >
+        </p>
+      </li>
+    </ul>
   </body>
 </html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Every In-N-Out</title>
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.js"></script>
+    <script src="ulysses.umd.js"></script>
+
+    <script>
+      mapboxgl.accessToken =
+        "pk.eyJ1IjoidXNhdG9kYXlncmFwaGljcyIsImEiOiJ0S3BGdndrIn0.5juF5LWz_GRcndian32tZA";
+      var map = new mapboxgl.Map({
+        container: "map", // container id
+        style: "mapbox://styles/mapbox/streets-v11", // stylesheet location
+        center: [-117.97348999999997, 34.06766999999999], // starting position [lng, lat]
+        zoom: 9, // starting zoom
+        maxZoom: 15
+      });
+
+      var story = new Ulysses({ map });
+
+      window.addEventListener("keydown", e => {
+        if (e.code === "Space") {
+          story._interval ? stop(story) : start(story);
+        }
+      });
+
+      fetch("./data/innout.geojson")
+        .then(r => r.json())
+        .then(steps => {
+          // sort by store number, which might be the order it opened
+          steps.features.sort((a, b) => +a.properties.ref - +b.properties.ref);
+          story.steps = steps;
+
+          addMarkers(map, steps);
+          start(story);
+        });
+
+      function start(story, duration = 7000) {
+        console.log("Playing story");
+        story.next();
+        story._interval = setInterval(() => {
+          story.next();
+        }, duration);
+      }
+
+      function stop(story) {
+        console.log("Pausing story");
+        clearInterval(story._interval);
+        delete story._interval;
+      }
+
+      function addMarkers(map, fc) {
+        fc.features.forEach(f => {
+          const marker = new mapboxgl.Marker()
+            .setLngLat(f.geometry.coordinates)
+            .addTo(map);
+        });
+      }
+    </script>
+  </body>
+</html>
