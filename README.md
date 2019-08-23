@@ -64,16 +64,16 @@ Each step is a GeoJSON feature. For example:
 
 ```json
 {
-    type: "Feature",
-    geometry: {
-        type: "Point",
-        coordinates: [...]
-    },
-    properties: {
-        action: showCountries,
-        countries: ["US", "UK", "CAN"],
-        text: "This is some text."
-    }
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [0, 0]
+  },
+  "properties": {
+    "action": "showCountries",
+    "countries": ["US", "UK", "CAN"],
+    "text": "This is some text."
+  }
 }
 ```
 
