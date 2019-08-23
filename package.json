@@ -16,10 +16,11 @@
     "serve": "^11.1.0"
   },
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && cp dist/ulysses.umd.js docs/",
     "dev": "rollup -c -w",
-    "test": "source .env && serve -n ./examples/ & cypress run",
-    "pretest": "npm run build"
+    "test": "source .env && serve -n ./docs/ & cypress run",
+    "pretest": "npm run build",
+    "start": "serve -n docs/"
   },
   "files": [
     "dist"

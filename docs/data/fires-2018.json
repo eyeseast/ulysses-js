@@ -1,0 +1,415 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "agency": "BLM",
+        "comments": "NIFC FTP; Refined using Sentinel 2 imagery",
+        "active": "N",
+        "mapmethod": "Digitized-Image",
+        "datecurren": "2018/08/27",
+        "uniquefire": "2018-NVHUMX-020170",
+        "fireyear": 2018,
+        "incidentna": "Martin",
+        "pooownerun": "NVPRI",
+        "perimeterd": "2018/08/26",
+        "gisacres": 432092.761221,
+        "complexnam": null,
+        "firecode": "LYC1",
+        "complexpar": null,
+        "poorespons": "NVHUMX",
+        "state": "NV",
+        "inciwebid": "5899",
+        "localincid": "020170",
+        "irwinid": "{2980EF8D-E188-4A96-AAE6-B133D4706BB9}",
+        "incomplex": "N",
+        "complexfir": null,
+        "mergeid": null,
+        "latest": "Y"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -117.01344915610564,
+          41.63287254181577
+        ]
+      },
+      "bbox": [
+        -117.47410708226369,
+        41.401084649278914,
+        -116.40457109121547,
+        41.81819019342316
+      ]
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "agency": "CDF",
+        "comments": null,
+        "active": "N",
+        "mapmethod": "Mixed Methods",
+        "datecurren": "2018/09/25",
+        "uniquefire": "2018-CAMEU-008646",
+        "fireyear": 2018,
+        "incidentna": "RANCH",
+        "pooownerun": "CAMEU",
+        "perimeterd": "2018/09/24",
+        "gisacres": 410202.463318,
+        "complexnam": "Mendocino Complex",
+        "firecode": "L1VW",
+        "complexpar": "{E5297875-5551-479A-B839-93B16FF4EE6E}",
+        "poorespons": "CAMEU",
+        "state": "CA",
+        "inciwebid": null,
+        "localincid": "008646",
+        "irwinid": "{25B938AB-3047-4D7B-ADE3-FD752F156F7C}",
+        "incomplex": "Y",
+        "complexfir": null,
+        "mergeid": null,
+        "latest": "Y"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.7987571619845,
+          39.272222728990116
+        ]
+      },
+      "bbox": [
+        -123.10988777976581,
+        39.04494311126945,
+        -122.43955691726461,
+        39.52987480426674
+      ]
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "agency": "DVF",
+        "comments": "Event Standard Perims",
+        "active": "N",
+        "mapmethod": "Mixed Methods",
+        "datecurren": "2018/04/27",
+        "uniquefire": "2018-OKOKS-000818",
+        "fireyear": 2018,
+        "incidentna": "Rhea",
+        "pooownerun": "NMCIF",
+        "perimeterd": "2018/04/26",
+        "gisacres": 286433.092906,
+        "complexnam": null,
+        "firecode": "LNZ7",
+        "complexpar": null,
+        "poorespons": "OKOKS",
+        "state": "OK",
+        "inciwebid": "5746",
+        "localincid": "000818",
+        "irwinid": "{11B1B161-B6FD-4B9D-A002-E47A5675E2A4}",
+        "incomplex": "N",
+        "complexfir": null,
+        "mergeid": null,
+        "latest": "Y"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -98.92862219964853,
+          35.97583343801485
+        ]
+      },
+      "bbox": [
+        -99.31410103336827,
+        35.77554789759421,
+        -98.69513914057904,
+        36.231211706261945
+      ]
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "agency": "C&L",
+        "comments": "Event Standard Perims",
+        "active": "N",
+        "mapmethod": "Unknown",
+        "datecurren": "2018/01/08",
+        "uniquefire": "2017-CAVNC-103156",
+        "fireyear": 2017,
+        "incidentna": "THOMAS",
+        "pooownerun": "CAVNC",
+        "perimeterd": "2018/01/07",
+        "gisacres": 281795.832318,
+        "complexnam": null,
+        "firecode": "LH77",
+        "complexpar": null,
+        "poorespons": "CAVNC",
+        "state": "CA",
+        "inciwebid": "5670",
+        "localincid": "103156",
+        "irwinid": "{943D8086-7DF4-47C7-BB98-A358E962667E}",
+        "incomplex": "N",
+        "complexfir": null,
+        "mergeid": null,
+        "latest": "Y"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -119.32828305035612,
+          34.46210949507831
+        ]
+      },
+      "bbox": [
+        -119.68161274654551,
+        34.27989497283244,
+        -118.92516863730299,
+        34.63745198373579
+      ]
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "agency": "C&L",
+        "comments": "NIFC FTP",
+        "active": "N",
+        "mapmethod": "Mixed Methods",
+        "datecurren": "2018/09/04",
+        "uniquefire": "2018-NVECFX-010299",
+        "fireyear": 2018,
+        "incidentna": "South Sugarloaf",
+        "pooownerun": "NVECFX",
+        "perimeterd": "2018/09/03",
+        "gisacres": 233607.538206,
+        "complexnam": null,
+        "firecode": "L3NM",
+        "complexpar": null,
+        "poorespons": "NVECFX",
+        "state": "NV",
+        "inciwebid": "6151",
+        "localincid": "010299",
+        "irwinid": "{A86E6F46-C43E-49AA-90E2-64C52F31739B}",
+        "incomplex": "N",
+        "complexfir": null,
+        "mergeid": null,
+        "latest": "Y"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -116.05175392985633,
+          41.741644589276575
+        ]
+      },
+      "bbox": [
+        -116.40041739018022,
+        41.57133299588969,
+        -115.63730617678141,
+        41.86059367252403
+      ]
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "agency": "USFS",
+        "comments": null,
+        "active": "N",
+        "mapmethod": "Mixed Methods",
+        "datecurren": "2018/09/01",
+        "uniquefire": "2018-CAWNP-001084",
+        "fireyear": 2018,
+        "incidentna": "CARR",
+        "pooownerun": "CAWNP",
+        "perimeterd": "2018/08/31",
+        "gisacres": 229651.39948,
+        "complexnam": null,
+        "firecode": "L1A6",
+        "complexpar": null,
+        "poorespons": "CAWNP",
+        "state": "CA",
+        "inciwebid": "6036",
+        "localincid": "001084",
+        "irwinid": "{6315DD52-1B00-4DAF-B57B-3B1E6E0453D1}",
+        "incomplex": "N",
+        "complexfir": null,
+        "mergeid": null,
+        "latest": "Y"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -122.55777975833195,
+          40.67709180153959
+        ]
+      },
+      "bbox": [
+        -122.78402312714661,
+        40.49230464860619,
+        -122.39537381004152,
+        40.937394004165355
+      ]
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "agency": "USFS",
+        "comments": null,
+        "active": "N",
+        "mapmethod": "Mixed Methods",
+        "datecurren": "2018/11/05",
+        "uniquefire": "2018-ORRSF-000354",
+        "fireyear": 2018,
+        "incidentna": "Klondike",
+        "pooownerun": "ORRSF",
+        "perimeterd": "2018/11/03",
+        "gisacres": 175287.306909,
+        "complexnam": null,
+        "firecode": "L00P",
+        "complexpar": null,
+        "poorespons": "ORRSF",
+        "state": "OR",
+        "inciwebid": "5998",
+        "localincid": "000354",
+        "irwinid": "{6F74BE75-7BA6-46C2-BE64-C4C58055D4C9}",
+        "incomplex": "N",
+        "complexfir": null,
+        "mergeid": null,
+        "latest": "Y"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -123.84727599563615,
+          42.44039208363093
+        ]
+      },
+      "bbox": [
+        -124.12845429068477,
+        42.230829834449366,
+        -123.42678072198225,
+        42.608020650530534
+      ]
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "agency": "CDF",
+        "comments": "Final",
+        "active": "N",
+        "mapmethod": "Mixed Methods",
+        "datecurren": "2018/11/26",
+        "uniquefire": "2018-CABTU-016737",
+        "fireyear": 2018,
+        "incidentna": "CAMP",
+        "pooownerun": "CAPNF",
+        "perimeterd": "2018/11/25",
+        "gisacres": 153335.565462,
+        "complexnam": null,
+        "firecode": "L6BH",
+        "complexpar": null,
+        "poorespons": "CABTU",
+        "state": "CA",
+        "inciwebid": "6250",
+        "localincid": "016737",
+        "irwinid": "{75E64DB8-9B75-4A68-BEDD-67CC62658E38}",
+        "incomplex": "N",
+        "complexfir": null,
+        "mergeid": null,
+        "latest": "Y"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -121.51155737782668,
+          39.742237199246205
+        ]
+      },
+      "bbox": [
+        -121.7778146464168,
+        39.598580232285144,
+        -121.3525918502018,
+        39.89781049119563
+      ]
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "agency": "BLM",
+        "comments": "NIFC FTP",
+        "active": "N",
+        "mapmethod": "Mixed Methods",
+        "datecurren": "2018/08/06",
+        "uniquefire": "2018-NVEKD-010229",
+        "fireyear": 2018,
+        "incidentna": "Goose Creek",
+        "pooownerun": "NVEKD",
+        "perimeterd": "2018/08/04",
+        "gisacres": 132127.359805,
+        "complexnam": null,
+        "firecode": "L1TV",
+        "complexpar": null,
+        "poorespons": "NVEKD",
+        "state": "NV",
+        "inciwebid": "6045",
+        "localincid": "010229",
+        "irwinid": "{01B2040E-AED8-4FE2-B2E3-2D582EBB4EA9}",
+        "incomplex": "N",
+        "complexfir": null,
+        "mergeid": null,
+        "latest": "Y"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -114.02167095289886,
+          41.62716620469419
+        ]
+      },
+      "bbox": [
+        -114.17242870613853,
+        41.416349255505224,
+        -113.89725439094065,
+        41.82935811632251
+      ]
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "agency": "C&L",
+        "comments": null,
+        "active": "N",
+        "mapmethod": "Mixed Methods",
+        "datecurren": "2018/07/16",
+        "uniquefire": "2018-COCTX-001266",
+        "fireyear": 2018,
+        "incidentna": "Spring Creek",
+        "pooownerun": "COCTX",
+        "perimeterd": "2018/07/15",
+        "gisacres": 108045.461658,
+        "complexnam": null,
+        "firecode": "LW8H",
+        "complexpar": null,
+        "poorespons": "COCTX",
+        "state": "CO",
+        "inciwebid": "5875",
+        "localincid": "001266",
+        "irwinid": "{79995136-F4E3-4613-9F1C-F05EF3076EA6}",
+        "incomplex": "N",
+        "complexfir": null,
+        "mergeid": null,
+        "latest": "Y"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -105.17321677562275,
+          37.55714488884569
+        ]
+      },
+      "bbox": [
+        -105.29109763971582,
+        37.392545982584295,
+        -105.00020258600068,
+        37.69199788107784
+      ]
+    }
+  ]
+}

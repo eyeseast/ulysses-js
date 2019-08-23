@@ -10,7 +10,9 @@ Extract options named in keys from properties and cast to type
 */
 function extractOptions(properties, keys = [], cast = id) {
   return keys.reduce((m, k) => {
-    m[k] = cast(properties[k]);
+    if (k in properties) {
+      m[k] = cast(properties[k]);
+    }
     return m;
   }, {});
 }
@@ -42,7 +44,7 @@ and use that.
 */
 export function fitBounds(map, feature) {
   const options = extractOptions(
-    properties,
+    feature.properties,
     ["maxZoom", "bearing", "pitch", "duration", "padding"],
     Number
   );

@@ -8,7 +8,7 @@ export default [
     input: "src/main.js",
     external: ["mapbox-gl"],
     output: {
-      name: "ulysses",
+      name: "Ulysses",
       file: pkg.browser,
       format: "umd",
       globals: {

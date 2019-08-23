@@ -1,22 +1,20 @@
-// import mapboxgl purely for type checking
-// this gets left out of the build
-import mapboxgl from "mapbox-gl";
 import * as defaultActions from "./actions.js";
 
 class Ulysses {
   constructor({ map, steps = {}, actions = {} }) {
-    if (!(map instanceof mapboxgl.Map)) {
-      throw new Error("map must be an instance of mapboxgl.Map");
-    }
     this.map = map;
     this.steps = steps;
     this.actions = Object.assign({}, defaultActions, actions);
 
-    this._current = 0;
+    this._current = -1;
   }
 
   get current() {
     return this._current;
+  }
+
+  get length() {
+    return this.steps.features.length;
   }
 
   next() {
@@ -28,7 +26,7 @@ class Ulysses {
   }
 
   step(n) {
-    const feature = this.steps[n];
+    const feature = this.steps.features[n];
     if (feature === undefined) return;
 
     this._current = n;
