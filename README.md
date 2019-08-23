@@ -6,7 +6,7 @@ For example, I want to step sequentially through the 10 largest wildfires in Cal
 
 This library provides a way to describe those actions and link them to each narrative step. How those steps are triggered -- scrolling, clicking, timed, something else -- is up to you. There's no built in UI here, because that's the thing that should be bespoke. But syncing a map to actions in a standard way gets us a running start.
 
-Steps are defined as a GeoJSON feature collection. Each feature can specify an `action` property, pointing to a function. Or it can use standard actions, like centering on a point or fitting the map to a bounding box. Each action function takes the map and a single feature.
+Steps are defined as a [GeoJSON feature collection](https://tools.ietf.org/html/rfc7946#section-3.3). Each feature can specify an `action` property, pointing to a function. Or it can use standard actions, like centering on a point or fitting the map to a bounding box. Each action function takes the map and a single feature.
 
 ## Background and prior art
 
@@ -23,7 +23,7 @@ There was, years ago, this cool project called Odyssey.js for making stories lik
 
 This is a good source of inspiration (including for the name I'm using).
 
-KnightLab also has a project called [StoryMap](https://storymap.knightlab.com/), which includes a data format and a UI. If you want something more turnkey, check out that project.
+[KnightLab](https://knightlab.northwestern.edu/) also has a project called [StoryMap](https://storymap.knightlab.com/), which includes a data format and a UI. If you want something more turnkey, check out that project.
 
 ## API
 
