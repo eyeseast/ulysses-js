@@ -22,8 +22,8 @@
     "test": "source .env && serve -n ./docs/ & cypress run",
     "pretest": "npm run build",
     "start": "serve -n docs/",
-    "docs": "documentation build -f html -o docs src/**",
-    "docs:dev": "documentation serve -w src/**"
+    "docs": "documentation build -c documentation.yml -f html -o docs src/**",
+    "docs:dev": "documentation serve -c documentation.yml -w src/**"
   },
   "files": [
     "dist"

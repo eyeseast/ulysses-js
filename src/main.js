@@ -2,9 +2,16 @@ import * as defaultActions from "./actions.js";
 import { getAction } from "./utils.js";
 
 /**
+ * Ulysses creates a narrative around geography by linking narrative steps to actions on a map.
+ * Each step is a feature in a [GeoJSON feature collection](https://tools.ietf.org/html/rfc7946#section-3.3),
+ * with a specific action defined as a property.
+ *
+ * Actions are functions that change the map state -- panning, zooming, rotating, adding or removing layers --
+ * anything you can do with the underlying map.
+ *
  * @param {mapboxgl.Map} map The map we're controlling. For now, only mapbox is supported.
- * @param {Object} steps A [GeoJSON feature collection](https://tools.ietf.org/html/rfc7946#section-3.3),
- * where each feature is a step in our story.
+ * @param {Object|Array} steps A [GeoJSON feature collection](https://tools.ietf.org/html/rfc7946#section-3.3),
+ * or an array of features, where each feature is a step in our story.
  * @param {Object} actions An object containing action functions to be called for each feature.
  * This gets merged into default actions (`flyTo`, `fitBounds`, `noop`) so you can override those
  * defaults by adding new functions of the same name.
@@ -14,6 +21,9 @@ import { getAction } from "./utils.js";
 class Ulysses {
   constructor({ map, steps = {}, actions = {} }) {
     this.map = map;
+    if (Array.isArray(steps)) {
+      steps = { type: "FeatureCollection", features: steps };
+    }
     this.steps = steps;
     this.actions = Object.assign({}, defaultActions, actions);
 
@@ -25,7 +35,8 @@ class Ulysses {
    *
    * @returns {Number}
    * @readonly
-   * @memberof Ulysses
+   * @instance Ulysses
+   * @property
    */
   get current() {
     return this._current;
@@ -35,7 +46,7 @@ class Ulysses {
    *
    * @returns {Number}
    * @readonly
-   * @memberof Ulysses
+   * @instance Ulysses
    */
   get length() {
     return this.steps.features.length;
@@ -43,7 +54,8 @@ class Ulysses {
   /**
    * Advance one step (unless we're at the end)
    *
-   * @memberof Ulysses
+   * @instance Ulysses
+   * @method
    */
   next() {
     this.step(this.current + 1);
@@ -51,7 +63,7 @@ class Ulysses {
   /**
    * Go back a step (unless we're at the beginning)
    *
-   * @memberof Ulysses
+   * @instance Ulysses
    */
   previous() {
     this.step(this.current - 1);
@@ -60,7 +72,7 @@ class Ulysses {
    * Go to step `n`, where `n` is a step number
    *
    * @param {Number} n Go to this step
-   * @memberof Ulysses
+   * @instance Ulysses
    */
   step(n) {
     const feature = this.steps.features[n];

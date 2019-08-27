@@ -25,39 +25,71 @@
               
                 
                 <li><a
-                  href='#flyto'
-                  class="">
-                  flyTo
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#fitbounds'
-                  class="">
-                  fitBounds
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#noop'
-                  class="">
-                  noop
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
                   href='#ulysses'
                   class=" toggle-sibling">
                   Ulysses
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  
+                    <ul class='list-reset py1-ul pl1'>
+                      <li class='h5'><span>Instance members</span></li>
+                      
+                      <li><a
+                        href='#ulyssescurrent'
+                        class='regular pre-open'>
+                        #current
+                      </a></li>
+                      
+                      <li><a
+                        href='#ulysseslength'
+                        class='regular pre-open'>
+                        #length
+                      </a></li>
+                      
+                      <li><a
+                        href='#ulyssesnext'
+                        class='regular pre-open'>
+                        #next
+                      </a></li>
+                      
+                      <li><a
+                        href='#ulyssesprevious'
+                        class='regular pre-open'>
+                        #previous
+                      </a></li>
+                      
+                      <li><a
+                        href='#ulyssesstep'
+                        class='regular pre-open'>
+                        #step
+                      </a></li>
+                      
+                    </ul>
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#examples'
+                  class="h5 bold black caps">
+                  Examples
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#built-in-actions'
+                  class="h5 bold black caps toggle-sibling">
+                  Built-in actions
                   <span class='icon'>▸</span>
                 </a>
                 
@@ -67,33 +99,21 @@
                     <li class='h5'><span>Static members</span></li>
                     
                       <li><a
-                        href='#ulyssescurrent'
+                        href='#flyto'
                         class='regular pre-open'>
-                        .current
+                        .flyTo
                       </a></li>
                     
                       <li><a
-                        href='#ulysseslength'
+                        href='#fitbounds'
                         class='regular pre-open'>
-                        .length
+                        .fitBounds
                       </a></li>
                     
                       <li><a
-                        href='#ulyssesnext'
+                        href='#noop'
                         class='regular pre-open'>
-                        .next
-                      </a></li>
-                    
-                      <li><a
-                        href='#ulyssesprevious'
-                        class='regular pre-open'>
-                        .previous
-                      </a></li>
-                    
-                      <li><a
-                        href='#ulyssesstep'
-                        class='regular pre-open'>
-                        .step
+                        .noop
                       </a></li>
                     
                     </ul>
@@ -107,21 +127,35 @@
               
                 
                 <li><a
-                  href='#getaction'
-                  class="">
-                  getAction
-                  
+                  href='#utilities'
+                  class="h5 bold black caps toggle-sibling">
+                  Utilities
+                  <span class='icon'>▸</span>
                 </a>
                 
-                </li>
-              
-                
-                <li><a
-                  href='#extractoptions'
-                  class="">
-                  extractOptions
+                <div class='toggle-target display-none'>
                   
-                </a>
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#getaction'
+                        class='regular pre-open'>
+                        .getAction
+                      </a></li>
+                    
+                      <li><a
+                        href='#extractoptions'
+                        class='regular pre-open'>
+                        .extractOptions
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
                 
                 </li>
               
@@ -140,249 +174,6 @@
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='flyto'>
-      flyTo
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>flyTo wraps Mapbox's Map#flyTo method, extracting arguments from feature properties
-and centering on this feature's geometry (which should be a point).</p>
-<p>The following properties are extracted, converted to numbers
-and passed to <a href="https://docs.mapbox.com/mapbox-gl-js/api/#map#flyto">Map#flyTo</a>:</p>
-<ul>
-<li><code>zoom</code></li>
-<li><code>bearing</code></li>
-<li><code>pitch</code></li>
-<li><code>duration</code></li>
-</ul>
-
-    <div class='pre p1 fill-light mt0'>flyTo(map: mapboxgl.Map, feature: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>map</span> <code class='quiet'>(mapboxgl.Map)</code>
-	    The map attached to our current story
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>feature</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
-	    The feature in view
-
-          </div>
-          
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>feature.geometry</span> <code class='quiet'>any</code>
-  </td>
-  <td class='break-word'><span></span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>feature.properties</span> <code class='quiet'>any</code>
-  </td>
-  <td class='break-word'><span></span></td>
-</tr>
-
-
-              
-            </tbody>
-          </table>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='fitbounds'>
-      fitBounds
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>fitBounds finds a bounding box for a feature and fits the map to it,
-using <a href="https://docs.mapbox.com/mapbox-gl-js/api/#map#fitbounds">Map#fitBounds</a>.
-If the feature has a bbox attribute, that is used. Otherwise, we calculate a bounding box
-and use that.</p>
-<p>The following properties are extracted, converted to numbers
-and passed to <a href="https://docs.mapbox.com/mapbox-gl-js/api/#map#fitbounds">Map#fitBounds</a>:</p>
-<ul>
-<li><code>maxZoom</code></li>
-<li><code>bearing</code></li>
-<li><code>pitch</code></li>
-<li><code>duration</code></li>
-<li><code>padding</code> (single padding only)</li>
-</ul>
-
-    <div class='pre p1 fill-light mt0'>fitBounds(map: mapboxgl.Map, feature: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>map</span> <code class='quiet'>(mapboxgl.Map)</code>
-	    The map attached to our current story
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>feature</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
-	    The feature in view
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='noop'>
-      noop
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>noop is the best action because it wants nothing and gives nothing in return</p>
-
-    <div class='pre p1 fill-light mt0'>noop()</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
     <h3 class='fl m0' id='ulysses'>
       Ulysses
     </h3>
@@ -391,8 +182,13 @@ and passed to <a href="https://docs.mapbox.com/mapbox-gl-js/api/#map#fitbounds">
   </div>
   
 
-  
-    <div class='pre p1 fill-light mt0'>new Ulysses(map: mapboxgl.Map, steps: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, actions: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  <p>Ulysses creates a narrative around geography by linking narrative steps to actions on a map.
+Each step is a feature in a <a href="https://tools.ietf.org/html/rfc7946#section-3.3">GeoJSON feature collection</a>,
+with a specific action defined as a property.</p>
+<p>Actions are functions that change the map state -- panning, zooming, rotating, adding or removing layers --
+anything you can do with the underlying map.</p>
+
+    <div class='pre p1 fill-light mt0'>new Ulysses(map: mapboxgl.Map, steps: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>), actions: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
   
   
 
@@ -418,11 +214,11 @@ and passed to <a href="https://docs.mapbox.com/mapbox-gl-js/api/#map#fitbounds">
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>steps</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+            <span class='code bold'>steps</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>))</code>
 	    A 
 <a href="https://tools.ietf.org/html/rfc7946#section-3.3">GeoJSON feature collection</a>
 ,
-where each feature is a step in our story.
+or an array of features, where each feature is a step in our story.
 
           </div>
           
@@ -457,7 +253,9 @@ defaults by adding new functions of the same name.
   
 
   
-    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+
+  
+    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
     <div class="clearfix">
   
     <div class='border-bottom' id='ulyssescurrent'>
@@ -732,6 +530,321 @@ defaults by adding new functions of the same name.
   
 
   
+</section>
+
+          
+        
+          
+            <div class='keyline-top-not py2'><section class='py2 clearfix'>
+
+  <h2 id='examples' class='mt0'>
+    Examples
+  </h2>
+
+  
+    <h3><a href="./examples/fires.html">The biggest fires of 2018</a></h3>
+<p>Use the left and right arrow keys to move through the 10 largest
+wildfires for 2018.</p>
+<p>Use numbers 0 through 9 to jump to a specific
+fire.</p>
+<h3><a href="./examples/innout.html">Every In-N-Out</a></h3>
+<p>Jump to a new In-N-Out location every few seconds. Hit the spacebar to
+stop and start.</p>
+<p>Source: <a href="https://github.com/alltheplaces/alltheplaces">All the Places</a></p>
+
+  
+</section></div>
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='built-in-actions'>
+      Built-in actions
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>"These actions are included by default.
+Override them by creating functions of the same name on your actions object."</p>
+
+    <div class='pre p1 fill-light mt0'>Built-in actions</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='flyto'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>flyTo(map, feature)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>flyTo wraps Mapbox's Map#flyTo method, extracting arguments from feature properties
+and centering on this feature's geometry (which should be a point).</p>
+<p>The following properties are extracted, converted to numbers
+and passed to <a href="https://docs.mapbox.com/mapbox-gl-js/api/#map#flyto">Map#flyTo</a>:</p>
+<ul>
+<li><code>zoom</code></li>
+<li><code>bearing</code></li>
+<li><code>pitch</code></li>
+<li><code>duration</code></li>
+</ul>
+
+    <div class='pre p1 fill-light mt0'>flyTo(map: mapboxgl.Map, feature: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(mapboxgl.Map)</code>
+	    The map attached to our current story
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>feature</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    The feature in view
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>feature.geometry</span> <code class='quiet'>any</code>
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>feature.properties</span> <code class='quiet'>any</code>
+  </td>
+  <td class='break-word'><span></span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='fitbounds'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>fitBounds(map, feature)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>fitBounds finds a bounding box for a feature and fits the map to it,
+using <a href="https://docs.mapbox.com/mapbox-gl-js/api/#map#fitbounds">Map#fitBounds</a>.
+If the feature has a bbox attribute, that is used. Otherwise, we calculate a bounding box
+and use that.</p>
+<p>The following properties are extracted, converted to numbers
+and passed to <a href="https://docs.mapbox.com/mapbox-gl-js/api/#map#fitbounds">Map#fitBounds</a>:</p>
+<ul>
+<li><code>maxZoom</code></li>
+<li><code>bearing</code></li>
+<li><code>pitch</code></li>
+<li><code>duration</code></li>
+<li><code>padding</code> (single padding only)</li>
+</ul>
+
+    <div class='pre p1 fill-light mt0'>fitBounds(map: mapboxgl.Map, feature: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>map</span> <code class='quiet'>(mapboxgl.Map)</code>
+	    The map attached to our current story
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>feature</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    The feature in view
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='noop'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>noop()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>noop is the best action because it wants nothing and gives nothing in return</p>
+
+    <div class='pre p1 fill-light mt0'>noop()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
 
   
 </section>
@@ -744,12 +857,51 @@ defaults by adding new functions of the same name.
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='getaction'>
-      getAction
+    <h3 class='fl m0' id='utilities'>
+      Utilities
     </h3>
     
     
   </div>
+  
+
+  <p>These might help when defining your own actions.</p>
+
+    <div class='pre p1 fill-light mt0'>Utilities</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='getaction'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getAction(feature, actions)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
   
 
   <p>Get the action function based on feature properties</p>
@@ -827,20 +979,19 @@ a map and the current feature in view.
   
 </section>
 
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
+      </div>
+    </div>
   
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='extractoptions'>
-      extractOptions
-    </h3>
-    
-    
-  </div>
+    <div class='border-bottom' id='extractoptions'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>extractOptions(properties, keys, cast)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
   
 
   <p>Extract options named in keys from properties and cast to type</p>
@@ -909,6 +1060,20 @@ a map and the current feature in view.
   
 
   
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
 
   
 

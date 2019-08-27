@@ -1,0 +1,20 @@
+toc:
+  - Ulysses
+
+  - name: Examples
+    file: docs/examples.md
+
+  - name: "Built-in actions"
+    description: |
+      "These actions are included by default. 
+      Override them by creating functions of the same name on your actions object."
+    children:
+      - flyTo
+      - fitBounds
+      - noop
+
+  - name: "Utilities"
+    description: "These might help when defining your own actions."
+    children:
+      - getAction
+      - extractOptions
