@@ -1,7 +1,6 @@
-import * as actions from "./actions.js";
+import * as defaultActions from "./actions.js";
+import { getAction } from "./utils.js";
 
-// separate out getAction from actual actions
-const { getAction, ...defaultActions } = actions;
 /**
  * @param {mapboxgl.Map} map
  * @param {Object} steps

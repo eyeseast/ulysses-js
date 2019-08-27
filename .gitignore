@@ -7,3 +7,4 @@ dist
 cypress/integration/examples
 cypress/videos
 cypress/fixtures/example.json
+cypress/screenshots
