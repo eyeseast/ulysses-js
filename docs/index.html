@@ -25,26 +25,6 @@
               
                 
                 <li><a
-                  href='#getaction'
-                  class="">
-                  getAction
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#extractoptions'
-                  class="">
-                  extractOptions
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
                   href='#flyto'
                   class="">
                   flyTo
@@ -76,8 +56,70 @@
                 
                 <li><a
                   href='#ulysses'
-                  class="">
+                  class=" toggle-sibling">
                   Ulysses
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#ulyssescurrent'
+                        class='regular pre-open'>
+                        .current
+                      </a></li>
+                    
+                      <li><a
+                        href='#ulysseslength'
+                        class='regular pre-open'>
+                        .length
+                      </a></li>
+                    
+                      <li><a
+                        href='#ulyssesnext'
+                        class='regular pre-open'>
+                        .next
+                      </a></li>
+                    
+                      <li><a
+                        href='#ulyssesprevious'
+                        class='regular pre-open'>
+                        .previous
+                      </a></li>
+                    
+                      <li><a
+                        href='#ulyssesstep'
+                        class='regular pre-open'>
+                        .step
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#getaction'
+                  class="">
+                  getAction
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#extractoptions'
+                  class="">
+                  extractOptions
                   
                 </a>
                 
@@ -91,176 +133,6 @@
         </div>
       </div>
       <div id='split-right' class='relative overflow-auto height-viewport-100'>
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='getaction'>
-      getAction
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Get the action function based on feature properties</p>
-<p>First, check for an <code>action</code> property that matches a member of actions.
-Next, try a default action.</p>
-<ul>
-<li>if there's a bounding box, <code>fitBounds</code></li>
-<li>if it's a point, a point, <code>flyTo</code></li>
-<li>if it's a polygon (or anything else, really), find a bounding box and call <code>fitBounds</code></li>
-</ul>
-
-    <div class='pre p1 fill-light mt0'>getAction(feature: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, actions: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>feature</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
-	    a single 
-<a href="https://tools.ietf.org/html/rfc7946#section-3.2">geojson feature</a>
-,
-usually the one in view
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>actions</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
-	    an object with defined actions to use. Each action is a function that takes
-a map and the current feature in view.
-
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-    
-      <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></code>:
-        with the signature 
-<code>action(map, feature): void</code>
-
-      
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='extractoptions'>
-      extractOptions
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Extract options named in keys from properties and cast to type</p>
-
-    <div class='pre p1 fill-light mt0'>extractOptions(properties: any, keys: any, cast: any)</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>properties</span> <code class='quiet'>(any)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>keys</span> <code class='quiet'>(any
-            = <code>[]</code>)</code>
-	    
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>cast</span> <code class='quiet'>(any
-            = <code>id</code>)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
         
           
           <section class='p2 mb2 clearfix bg-white minishadow'>
@@ -538,7 +410,8 @@ and passed to <a href="https://docs.mapbox.com/mapbox-gl-js/api/#map#fitbounds">
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>map</span> <code class='quiet'>(mapboxgl.Map)</code>
-	    
+	    The map we're controlling. For now, only mapbox is supported.
+
           </div>
           
         </div>
@@ -546,7 +419,11 @@ and passed to <a href="https://docs.mapbox.com/mapbox-gl-js/api/#map#fitbounds">
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>steps</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
-	    
+	    A 
+<a href="https://tools.ietf.org/html/rfc7946#section-3.3">GeoJSON feature collection</a>
+,
+where each feature is a step in our story.
+
           </div>
           
         </div>
@@ -554,7 +431,16 @@ and passed to <a href="https://docs.mapbox.com/mapbox-gl-js/api/#map#fitbounds">
         <div class='space-bottom0'>
           <div>
             <span class='code bold'>actions</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
-	    
+	    An object containing action functions to be called for each feature.
+This gets merged into default actions (
+<code>flyTo</code>
+, 
+<code>fitBounds</code>
+, 
+<code>noop</code>
+) so you can override those
+defaults by adding new functions of the same name.
+
           </div>
           
         </div>
@@ -564,6 +450,460 @@ and passed to <a href="https://docs.mapbox.com/mapbox-gl-js/api/#map#fitbounds">
 
   
 
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='ulyssescurrent'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>current</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Get the current step number (zero-indexed)</p>
+
+    <div class='pre p1 fill-light mt0'>current</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='ulysseslength'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>length</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Get the number fo steps in this story</p>
+
+    <div class='pre p1 fill-light mt0'>length</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='ulyssesnext'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>next()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Advance one step (unless we're at the end)</p>
+
+    <div class='pre p1 fill-light mt0'>next()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='ulyssesprevious'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>previous()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Go back a step (unless we're at the beginning)</p>
+
+    <div class='pre p1 fill-light mt0'>previous()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='ulyssesstep'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>step(n)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Go to step <code>n</code>, where <code>n</code> is a step number</p>
+
+    <div class='pre p1 fill-light mt0'>step(n: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>n</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a>)</code>
+	    Go to this step
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='getaction'>
+      getAction
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Get the action function based on feature properties</p>
+<p>First, check for an <code>action</code> property that matches a member of actions.
+Next, try a default action.</p>
+<ul>
+<li>if there's a bounding box, <code>fitBounds</code></li>
+<li>if it's a point, a point, <code>flyTo</code></li>
+<li>if it's a polygon (or anything else, really), find a bounding box and call <code>fitBounds</code></li>
+</ul>
+
+    <div class='pre p1 fill-light mt0'>getAction(feature: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, actions: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>feature</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    a single 
+<a href="https://tools.ietf.org/html/rfc7946#section-3.2">geojson feature</a>
+,
+usually the one in view
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>actions</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    an object with defined actions to use. Each action is a function that takes
+a map and the current feature in view.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a></code>:
+        with the signature 
+<code>action(map, feature): void</code>
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='extractoptions'>
+      extractOptions
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Extract options named in keys from properties and cast to type</p>
+
+    <div class='pre p1 fill-light mt0'>extractOptions(properties: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, keys: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>, cast: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>properties</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    A properties object from a feature from which to extract values
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>keys</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>
+            = <code>[]</code>)</code>
+	    A list of keys to extract
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>cast</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">function</a>
+            = <code>id</code>)</code>
+	    A function to convert keys to a different type, ie 
+<code>Number</code>
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a></code>:
+        An options object, with values converted by 
+<code>cast</code>
+
+      
+    
   
 
   

@@ -36,8 +36,14 @@ export function getAction(feature, actions) {
 }
 
 /**
-Extract options named in keys from properties and cast to type
-*/
+ * Extract options named in keys from properties and cast to type
+ *
+ * @param {Object} properties A properties object from a feature from which to extract values
+ * @param {Array<string>} keys A list of keys to extract
+ * @param {function} cast A function to convert keys to a different type, ie `Number`
+ *
+ * @returns {object} An options object, with values converted by `cast`
+ */
 export function extractOptions(properties, keys = [], cast = id) {
   return keys.reduce((m, k) => {
     if (k in properties) {
