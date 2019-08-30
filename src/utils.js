@@ -16,7 +16,7 @@ const id = i => i;
  * a map and the current feature in view.
  * @returns {function} with the signature `action(map, feature): void`
  */
-export function getAction(feature, actions) {
+export function getAction(feature = {}, actions = {}) {
   if ("action" in feature.properties && feature.properties.action in actions) {
     return actions[feature.properties.action];
   }

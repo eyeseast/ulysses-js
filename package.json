@@ -9,8 +9,9 @@
   },
   "devDependencies": {
     "@turf/bbox": "^6.0.1",
-    "cypress": "^3.4.1",
     "documentation": "^12.1.1",
+    "esm": "^3.2.25",
+    "jest": "^24.9.0",
     "rollup": "^1.18.0",
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-node-resolve": "^5.1.0",
@@ -19,7 +20,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "test": "source .env && serve -n ./docs/ & cypress run",
+    "test": "jest",
     "pretest": "npm run build",
     "start": "serve -n docs/",
     "docs": "documentation build -c documentation.yml -f html -o docs src/**",
