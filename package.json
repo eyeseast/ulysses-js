@@ -22,6 +22,7 @@
     "dev": "rollup -c -w",
     "test": "jest",
     "pretest": "npm run build",
+    "prepublish": "npm run build",
     "start": "serve -n docs/",
     "docs": "documentation build -c documentation.yml -f html -o docs src/**",
     "docs:dev": "documentation serve -c documentation.yml -w src/**"
