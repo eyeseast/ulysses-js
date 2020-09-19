@@ -5,17 +5,17 @@
   "module": "dist/ulysses.esm.js",
   "browser": "dist/ulysses.umd.js",
   "dependencies": {
-    "mapbox-gl": "^1.2.1"
+    "mapbox-gl": "^1.12.0"
   },
   "devDependencies": {
     "@turf/bbox": "^6.0.1",
-    "documentation": "^12.1.1",
+    "documentation": "^12.3.0",
     "esm": "^3.2.25",
-    "jest": "^24.9.0",
-    "rollup": "^1.18.0",
-    "rollup-plugin-commonjs": "^10.0.0",
+    "jest": "^26.4.2",
+    "rollup": "^1.32.1",
+    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.1.0",
-    "serve": "^11.1.0"
+    "serve": "^11.3.2"
   },
   "scripts": {
     "build": "rollup -c",
