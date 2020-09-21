@@ -2,11 +2,23 @@
 
 This is a tool for creating stories around maps.
 
+Docs: https://eyeseast.github.io/ulysses-js/
+
 For example, I want to step sequentially through the 10 largest wildfires in California this year. For each fire, I want to fly across the map so the entire fire is in view. For one of those fires, I want to change the map orientation. Finally, I want to zoom out to see all of California.
 
 This library provides a way to describe those actions and link them to each narrative step. How those steps are triggered -- scrolling, clicking, timed, something else -- is up to you. There's no built in UI here, because that's the thing that should be bespoke. But syncing a map to actions in a standard way gets us a running start.
 
 Steps are defined as a [GeoJSON feature collection](https://tools.ietf.org/html/rfc7946#section-3.3). Each feature can specify an `action` property, pointing to a function. Or it can use standard actions, like centering on a point or fitting the map to a bounding box. Each action function takes the map and a single feature.
+
+## Installation
+
+Install [with npm](https://www.npmjs.com/package/ulysses-js):
+
+```sh
+npm install ulysses-js
+```
+
+This will also install the latest version of [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/api/), though that may become a peer dependency in the future.
 
 ## Background and prior art
 
@@ -25,11 +37,16 @@ This is a good source of inspiration (including for the name I'm using).
 
 [KnightLab](https://knightlab.northwestern.edu/) also has a project called [StoryMap](https://storymap.knightlab.com/), which includes a data format and a UI. If you want something more turnkey, check out that project.
 
-## API
+## Usage and API
+
+At its heart, this library provides a connection between a map, a series of steps and a set of actions.
 
 ```js
+// package imports
 import Ulysses from "ulysses-js";
 import mapboxgl from "mapbox-gl";
+
+// steps and actions are up to you
 import * as actions from "./actions.js"; // put all our custom actions in a module
 import steps from "./steps.json"; // store our steps feature collection as a geojson file and import it, or load via ajax
 ```
