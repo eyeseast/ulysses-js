@@ -67,7 +67,13 @@ class Ulysses {
 	 * @method
 	 */
 	next() {
-		this.trigger("next", { step: this.current, feature: this.steps[this.current] });
+		if (this.current === -1) {
+			this.trigger("start");
+		}
+		this.trigger("next", {
+			step: this.current,
+			feature: this.current > -1 ? this.steps.features[this.current] : undefined,
+		});
 		this.step(this.current + 1);
 	}
 	/**
@@ -78,7 +84,7 @@ class Ulysses {
 	previous() {
 		this.trigger("previous", {
 			step: this.current,
-			feature: this.steps[this.current],
+			feature: this.steps.features[this.current],
 		});
 		this.step(this.current - 1);
 	}
@@ -99,6 +105,10 @@ class Ulysses {
 		action(this.map, feature);
 
 		this.trigger("step", { step: n, feature });
+
+		if (n === this.length - 1) {
+			this.trigger("end");
+		}
 	}
 
 	// events
