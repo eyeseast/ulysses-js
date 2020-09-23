@@ -67,6 +67,7 @@ class Ulysses {
 	 * @method
 	 */
 	next() {
+		this.trigger("next", { step: this.current, feature: this.steps[this.current] });
 		this.step(this.current + 1);
 	}
 	/**
@@ -75,6 +76,10 @@ class Ulysses {
 	 * @instance Ulysses
 	 */
 	previous() {
+		this.trigger("previous", {
+			step: this.current,
+			feature: this.steps[this.current],
+		});
 		this.step(this.current - 1);
 	}
 	/**
@@ -92,6 +97,8 @@ class Ulysses {
 		const action = getAction(feature, this.actions);
 
 		action(this.map, feature);
+
+		this.trigger("step", { step: n, feature });
 	}
 
 	// events
