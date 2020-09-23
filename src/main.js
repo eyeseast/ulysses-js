@@ -19,71 +19,157 @@ import { getAction } from "./utils.js";
  * @class Ulysses
  */
 class Ulysses {
-  constructor({ map, steps = {}, actions = {} }) {
-    this.map = map;
-    if (Array.isArray(steps)) {
-      steps = { type: "FeatureCollection", features: steps };
-    }
-    this.steps = steps;
-    this.actions = Object.assign({}, defaultActions, actions);
+	constructor({ map, steps = {}, actions = {} }) {
+		this.map = map;
+		if (Array.isArray(steps)) {
+			steps = { type: "FeatureCollection", features: steps };
+		}
+		this.steps = steps;
+		this.actions = Object.assign({}, defaultActions, actions);
 
-    this._current = -1;
-  }
+		this._current = -1;
 
-  /**
-   * Get the current step number (zero-indexed)
-   *
-   * @returns {Number}
-   * @readonly
-   * @instance Ulysses
-   * @property
-   */
-  get current() {
-    return this._current;
-  }
-  /**
-   * Get the number fo steps in this story
-   *
-   * @returns {Number}
-   * @readonly
-   * @instance Ulysses
-   */
-  get length() {
-    return this.steps.features.length;
-  }
-  /**
-   * Advance one step (unless we're at the end)
-   *
-   * @instance Ulysses
-   * @method
-   */
-  next() {
-    this.step(this.current + 1);
-  }
-  /**
-   * Go back a step (unless we're at the beginning)
-   *
-   * @instance Ulysses
-   */
-  previous() {
-    this.step(this.current - 1);
-  }
-  /**
-   * Go to step `n`, where `n` is a step number
-   *
-   * @param {Number} n Go to this step
-   * @instance Ulysses
-   */
-  step(n) {
-    const feature = this.steps.features[n];
-    if (feature === undefined) return;
+		// define our default events
+		this._callbacks = Object.assign(Object.create(null), {
+			step: [],
+			next: [],
+			previous: [],
+			start: [],
+			end: [],
+		});
+	}
 
-    this._current = n;
+	/**
+	 * Get the current step number (zero-indexed)
+	 *
+	 * @returns {Number}
+	 * @readonly
+	 * @instance Ulysses
+	 * @property
+	 */
+	get current() {
+		return this._current;
+	}
+	/**
+	 * Get the number fo steps in this story
+	 *
+	 * @returns {Number}
+	 * @readonly
+	 * @instance Ulysses
+	 */
+	get length() {
+		return this.steps.features.length;
+	}
+	/**
+	 * Advance one step (unless we're at the end)
+	 *
+	 * @instance Ulysses
+	 * @method
+	 */
+	next() {
+		this.step(this.current + 1);
+	}
+	/**
+	 * Go back a step (unless we're at the beginning)
+	 *
+	 * @instance Ulysses
+	 */
+	previous() {
+		this.step(this.current - 1);
+	}
+	/**
+	 * Go to step `n`, where `n` is a step number
+	 *
+	 * @param {Number} n Go to this step
+	 * @instance Ulysses
+	 */
+	step(n) {
+		const feature = this.steps.features[n];
+		if (feature === undefined) return;
 
-    const action = getAction(feature, this.actions);
+		this._current = n;
 
-    action(this.map, feature);
-  }
+		const action = getAction(feature, this.actions);
+
+		action(this.map, feature);
+	}
+
+	// events
+	/**
+	 * Register a callback for a given event
+	 *
+	 * @param {String} event
+	 * @param {Function} callback
+	 * @instance Ulysses
+	 * @returns {Function} unsubscribe function
+	 */
+	on(event, callback) {
+		if (!Array.isArray(this._callbacks[event])) {
+			this._callbacks[event] = [];
+		}
+
+		this._callbacks[event].push(callback);
+
+		return () => {
+			this.off(event, callback);
+		};
+	}
+
+	/**
+	 * Register a callback for an event that only fires once
+	 *
+	 * @param {String} event
+	 * @param {Function} callback
+	 * @instance Ulysses
+	 */
+
+	once(event, callback) {
+		this.on(event, e => {
+			this.off(event, callback);
+			callback.call(this, e);
+		});
+	}
+
+	/**
+	 * Remove a callback for a given event. If callback is `undefined`, remove all callbacks for that event.
+	 *
+	 * @param {String} event
+	 * @param {Function} callback
+	 * @instance Ulysses
+	 */
+	off(event, callback) {
+		// noop
+		if (!Array.isArray(this._callbacks[event])) return;
+
+		// remove all
+		if (!callback) {
+			this._callbacks[event] = [];
+		}
+
+		// remove one
+		const i = this._callbacks[event].indexOf(callback);
+		if (i > -1) {
+			this._callbacks[event].splice(i, 1);
+		}
+	}
+
+	/**
+	 * Fire callbacks for a given event. This is used internally but may be useful in actions.
+	 * The `detail` object is passed to callback functions.
+	 *
+	 * @param {String} event
+	 * @param {Object} [detail={}]
+	 * @instance Ulysses
+	 */
+	trigger(event, detail = {}) {
+		const callbacks = this._callbacks[event];
+
+		if (!Array.isArray(callbacks)) return;
+
+		callbacks.forEach(f => {
+			f.call(this, detail);
+		});
+	}
 }
 
 export default Ulysses;

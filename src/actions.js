@@ -18,19 +18,19 @@ import { extractOptions } from "./utils.js";
  * @param {Object} feature The feature in view
  */
 export function flyTo(map, { geometry, properties }) {
-  const options = extractOptions(
-    properties,
-    ["zoom", "bearing", "pitch", "duration"],
-    Number
-  );
+	const options = extractOptions(
+		properties,
+		["zoom", "bearing", "pitch", "duration"],
+		Number
+	);
 
-  if (!options.zoom) {
-    options.zoom = map.getMaxZoom();
-  }
+	if (!options.zoom) {
+		options.zoom = map.getMaxZoom();
+	}
 
-  options.center = geometry.coordinates;
+	options.center = geometry.coordinates;
 
-  map.flyTo(options);
+	map.flyTo(options);
 }
 
 /**
@@ -53,15 +53,15 @@ export function flyTo(map, { geometry, properties }) {
  * @param {Object} feature The feature in view
  */
 export function fitBounds(map, feature) {
-  const options = extractOptions(
-    feature.properties,
-    ["maxZoom", "bearing", "pitch", "duration", "padding"],
-    Number
-  );
+	const options = extractOptions(
+		feature.properties,
+		["maxZoom", "bearing", "pitch", "duration", "padding"],
+		Number
+	);
 
-  const bounds = feature.bbox ? feature.bbox : bbox(feature);
+	const bounds = feature.bbox ? feature.bbox : bbox(feature);
 
-  map.fitBounds(bounds, options);
+	map.fitBounds(bounds, options);
 }
 
 /**

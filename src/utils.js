@@ -17,22 +17,22 @@ const id = i => i;
  * @returns {function} with the signature `action(map, feature): void`
  */
 export function getAction(feature = {}, actions = {}) {
-  if ("action" in feature.properties && feature.properties.action in actions) {
-    return actions[feature.properties.action];
-  }
+	if ("action" in feature.properties && feature.properties.action in actions) {
+		return actions[feature.properties.action];
+	}
 
-  // no defined action, get a default, starting with fitBounds
-  if (feature.bbox) {
-    return actions.fitBounds;
-  }
+	// no defined action, get a default, starting with fitBounds
+	if (feature.bbox) {
+		return actions.fitBounds;
+	}
 
-  // we can fly to a point
-  if (feature.geometry.type === "Point") {
-    return actions.flyTo;
-  }
+	// we can fly to a point
+	if (feature.geometry.type === "Point") {
+		return actions.flyTo;
+	}
 
-  // everything else has bounds
-  return actions.fitBounds;
+	// everything else has bounds
+	return actions.fitBounds;
 }
 
 /**
@@ -45,10 +45,10 @@ export function getAction(feature = {}, actions = {}) {
  * @returns {object} An options object, with values converted by `cast`
  */
 export function extractOptions(properties, keys = [], cast = id) {
-  return keys.reduce((m, k) => {
-    if (k in properties) {
-      m[k] = cast(properties[k]);
-    }
-    return m;
-  }, {});
+	return keys.reduce((m, k) => {
+		if (k in properties) {
+			m[k] = cast(properties[k]);
+		}
+		return m;
+	}, {});
 }
