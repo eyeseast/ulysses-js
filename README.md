@@ -10,6 +10,25 @@ This library provides a way to describe those actions and link them to each narr
 
 Steps are defined as a [GeoJSON feature collection](https://tools.ietf.org/html/rfc7946#section-3.3). Each feature can specify an `action` property, pointing to a function. Or it can use standard actions, like centering on a point or fitting the map to a bounding box. Each action function takes the map and a single feature.
 
+## Examples
+
+View source on these to see the setup.
+
+### [The biggest fires of 2018](https://eyeseast.github.io/ulysses-js/examples/fires.html)
+
+Use the left and right arrow keys to move through the 10 largest
+wildfires for 2018.
+
+Use numbers 0 through 9 to jump to a specific
+fire.
+
+### [Every In-N-Out](https://eyeseast.github.io/ulysses-js/examples/innout.html)
+
+Jump to a new In-N-Out location every few seconds. Hit the spacebar to
+stop and start.
+
+Source: [All the Places](https://github.com/alltheplaces/alltheplaces)
+
 ## Installation
 
 Install [with npm](https://www.npmjs.com/package/ulysses-js):
