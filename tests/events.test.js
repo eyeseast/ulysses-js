@@ -77,4 +77,16 @@ describe("tests for events", () => {
 
 		expect(ended).toBe(true);
 	});
+
+	test("create and listen for a custom event", () => {
+		let success = false;
+
+		story.on("success", e => {
+			success = e.success;
+		});
+
+		story.trigger("success", { success: true });
+
+		expect(success).toBe(true);
+	});
 });
