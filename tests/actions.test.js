@@ -2,8 +2,8 @@
 require = require("esm")(module);
 const fs = require("fs");
 const path = require("path");
-const { extractOptions, getAction } = require("../src/utils.js");
-const actions = require("../src/actions.js");
+const { extractOptions, getAction } = require("../src/utils.mjs");
+const actions = require("../src/actions.mjs");
 
 const feature = {
 	type: "Feature",

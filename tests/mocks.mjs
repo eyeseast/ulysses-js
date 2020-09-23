@@ -3,7 +3,7 @@ Mocked objects that record what happens
 */
 
 // like a mapbox map, except it doesn't do anything
-class Map {
+export class Map {
 	constructor() {
 		// each log item is a pair of [string, array]
 		// with the name of a method and its arguments
@@ -26,5 +26,3 @@ class Map {
 		this.record("getMaxZoom", args);
 	}
 }
-
-module.exports = { Map };
