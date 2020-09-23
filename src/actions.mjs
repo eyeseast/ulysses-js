@@ -1,5 +1,5 @@
 import bbox from "@turf/bbox";
-import { extractOptions } from "./utils.js";
+import { extractOptions } from "./utils.mjs";
 
 /**
  * flyTo wraps Mapbox's Map#flyTo method, extracting arguments from feature properties

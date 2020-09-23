@@ -1,5 +1,5 @@
-import * as defaultActions from "./actions.js";
-import { getAction } from "./utils.js";
+import * as defaultActions from "./actions.mjs";
+import { getAction } from "./utils.mjs";
 
 /**
  * Ulysses creates a narrative around geography by linking narrative steps to actions on a map.
