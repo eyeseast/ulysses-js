@@ -20,22 +20,43 @@
 				bottom: 0;
 				width: 100%;
 			}
+
+			.mapboxgl-ctrl.legend {
+				padding: 1em;
+				background-color: white;
+				border-radius: 0.5px;
+			}
 		</style>
 	</head>
 	<body>
 		<div id="map"></div>
-		<script src="ulysses.umd.js"></script>
-		<script>
-			//var story;
+
+		<script type="module">
+			import Ulysses from "./ulysses.esm.js";
+			import Legend from "./legend.js";
+
 			mapboxgl.accessToken =
 				"pk.eyJ1IjoidXNhdG9kYXlncmFwaGljcyIsImEiOiJ0S3BGdndrIn0.5juF5LWz_GRcndian32tZA";
 
-			var map = (window.map = new mapboxgl.Map({
+			const map = (window.map = new mapboxgl.Map({
 				container: "map", // container id
 				style: "mapbox://styles/chrisamico/cjpwpqryr121e2rkbnxyna4rq", // fires 2018
 			}));
 
-			var story = (window.story = new Ulysses({ map, steps: [] }));
+			const legend = new Legend()
+				.addTo(map, "top-left")
+				.setContent(
+					`<p>Use left/right arrow keys to see the 10 largest fires of 2018</p>`
+				);
+
+			const story = (window.story = new Ulysses({ map, steps: [] }));
+
+			story.on("step", e => {
+				const p = e.feature.properties;
+
+				legend.setContent(`<h3>${p.incidentna}</h3>
+				<p><strong>Area burned</strong>: ${p.gisacres.toLocaleString()} acres</p>`);
+			});
 
 			window.addEventListener("keydown", e => {
 				if (e.key === "ArrowLeft") {

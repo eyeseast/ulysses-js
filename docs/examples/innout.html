@@ -19,18 +19,27 @@
 				bottom: 0;
 				width: 100%;
 			}
+
+			.mapboxgl-ctrl.legend {
+				padding: 1em;
+				background-color: white;
+				border-radius: 0.5px;
+			}
 		</style>
 	</head>
 	<body>
 		<div id="map"></div>
 
 		<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.js"></script>
-		<script src="ulysses.umd.js"></script>
 
-		<script>
+		<script type="module">
+			import Ulysses from "./ulysses.esm.js";
+			import Legend from "./legend.js";
+
 			mapboxgl.accessToken =
 				"pk.eyJ1IjoidXNhdG9kYXlncmFwaGljcyIsImEiOiJ0S3BGdndrIn0.5juF5LWz_GRcndian32tZA";
-			var map = new mapboxgl.Map({
+
+			const map = new mapboxgl.Map({
 				container: "map", // container id
 				style: "mapbox://styles/mapbox/streets-v11", // stylesheet location
 				center: [-117.97348999999997, 34.06766999999999], // starting position [lng, lat]
@@ -38,7 +47,25 @@
 				maxZoom: 15,
 			});
 
-			var story = new Ulysses({ map });
+			const legend = new Legend().addTo(map, "top-left");
+
+			const story = (window.story = new Ulysses({ map }));
+
+			story.on("start", e => {
+				console.log("Playing story");
+			});
+
+			story.on("step", e => {
+				const p = e.feature.properties;
+				legend.setContent(`
+<h3>${p.name}</h3>
+<address>
+${p["addr:full"]}<br>
+${p["addr:city"]}, ${p["addr:state"]} ${p["addr:postcode"]}<br>
+</address>
+
+<p>Press [space] to stop/start map movement</p>`);
+			});
 
 			window.addEventListener("keydown", e => {
 				if (e.code === "Space") {
@@ -58,7 +85,6 @@
 				});
 
 			function start(story, duration = 7000) {
-				console.log("Playing story");
 				story.next();
 				story._interval = setInterval(() => {
 					story.next();

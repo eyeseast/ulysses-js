@@ -114,6 +114,16 @@
               
                 
                 <li><a
+                  href='#events'
+                  class="h5 bold black caps">
+                  Events
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#built-in-actions'
                   class="h5 bold black caps toggle-sibling">
                   Built-in actions
@@ -886,6 +896,48 @@ stop and start.</p>
           
         
           
+            <div class='keyline-top-not py2'><section class='py2 clearfix'>
+
+  <h2 id='events' class='mt0'>
+    Events
+  </h2>
+
+  
+    <h3>Built-in events</h3>
+<p>A <code>Ulysses</code> object triggers events as you move through steps, and you can listen to these to keep other parts of your interface in sync. Some steps receive additional data, which a callback can use.</p>
+<p>Note that both the <code>next</code> and <code>previous</code> events fire <em>before</em> any actions are triggered. Use <code>step</code> for callbacks that should fire after the step completes.</p>
+<p><strong>start</strong>: Fires before the first step. No additional data is included.</p>
+<p><strong>next</strong> (<code>step</code>, <code>feature</code>): Fires each time <code>story.next()</code> is called, <em>before</em> actually moving to the next step. The included event has two members:</p>
+<ul>
+<li><code>step</code>: the index of <em>current</em> step (before changing)</li>
+<li><code>feature</code>: the GeoJSON feature associated with the <em>current</em> step</li>
+</ul>
+<p><strong>previous</strong> (<code>step</code>, <code>feature</code>): Fires each time <code>story.previous()</code> is called, <em>before</em> actually moving to the previous step. The included event has two members:</p>
+<ul>
+<li><code>step</code>: the index of <em>current</em> step (before changing)</li>
+<li><code>feature</code>: the GeoJSON feature associated with the <em>current</em> step</li>
+</ul>
+<p><strong>step</strong> (<code>step</code>, <code>feature</code>): Fires each time <code>story.step(n)</code> is called, <em>after</em> the step and associated action have fired (though not necessarily after all map updates have completed). The included event has two members:</p>
+<ul>
+<li><code>step</code>: the index of the <em>current</em> step (after changing)</li>
+<li><code>feature</code>: the GeoJSON feature associated with the <em>current</em> step</li>
+</ul>
+<p><strong>end</strong>: Fires after the last step. No additional data is included.</p>
+<h3>Custom events</h3>
+<p>It's possible to define custom events. For example, an action might trigger a custom event to signal that it's finished, and a callback can listen for it.</p>
+<pre class='hljs'><span class="hljs-keyword">let</span> success = <span class="hljs-literal">false</span>;
+
+story.on(<span class="hljs-string">"success"</span>, e =&gt; {
+	success = e.success;
+});
+
+story.trigger(<span class="hljs-string">"success"</span>, { <span class="hljs-attr">success</span>: <span class="hljs-literal">true</span> });</pre>
+
+  
+</section></div>
+          
+        
+          
           <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
@@ -899,8 +951,8 @@ stop and start.</p>
   </div>
   
 
-  <p>"These actions are included by default.
-Override them by creating functions of the same name on your actions object."</p>
+  <p>These actions are included by default.
+Override them by creating functions of the same name on your actions object.</p>
 
     <div class='pre p1 fill-light mt0'>Built-in actions</div>
   

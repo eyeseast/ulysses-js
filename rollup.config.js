@@ -30,6 +30,7 @@ export default [
 		output: [
 			{ file: pkg.main, format: "cjs" },
 			{ file: pkg.module, format: "es" },
+			{ file: "docs/examples/ulysses.esm.js" }, // for examples to use
 		],
 		plugins: [resolve(), commonjs()],
 	},
