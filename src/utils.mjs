@@ -21,6 +21,16 @@ export function getAction(feature = {}, actions = {}) {
 		return actions[feature.properties.action];
 	}
 
+	// handle nulls
+
+	if (
+		!feature.geometry || // no geometry
+		!feature.geometry.coordinates || // no coordinates
+		0 === feature.geometry.coordinates.length // [] coordinates
+	) {
+		return actions.noop;
+	}
+
 	// no defined action, get a default, starting with fitBounds
 	if (feature.bbox) {
 		return actions.fitBounds;

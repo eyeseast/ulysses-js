@@ -52,4 +52,19 @@ describe("tests for creating and calling actions", () => {
 
 		expect(action).toBe(actions.fitBounds);
 	});
+
+	test("no geometry uses noop", () => {
+		const nullFeature = {
+			type: "Feature",
+			properties: { text: "No where to go here" },
+			geometry: {
+				type: "Point",
+				coordinates: [],
+			},
+		};
+
+		const action = getAction(nullFeature, actions);
+
+		expect(action).toBe(actions.noop);
+	});
 });
