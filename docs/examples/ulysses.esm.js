@@ -2178,9 +2178,6 @@ class Ulysses {
 	 * @method
 	 */
 	next() {
-		if (this.current === -1) {
-			this.trigger("start");
-		}
 		this.trigger("next", {
 			step: this.current,
 			feature: this.current > -1 ? this.steps.features[this.current] : undefined,
@@ -2209,6 +2206,9 @@ class Ulysses {
 		const feature = this.steps.features[n];
 		if (feature === undefined) return;
 
+		if (this.current === -1) {
+			this.trigger("start");
+		}
 		this._current = n;
 
 		const action = getAction(feature, this.actions);

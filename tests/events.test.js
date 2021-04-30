@@ -66,6 +66,28 @@ describe("tests for events", () => {
 		expect(started).toBe(true);
 	});
 
+	test("listen for start on step 0", () => {
+		let started = false;
+		story.on("start", e => {
+			started = true;
+		});
+
+		story.step(0);
+
+		expect(started).toBe(true);
+	});
+
+	test("only start once", () => {
+		let count = 0;
+		story.on("start", e => {
+			count++;
+		});
+
+		story.next();
+
+		expect(count).toBe(1);
+	});
+
 	test("listen for end", () => {
 		let ended = false;
 
