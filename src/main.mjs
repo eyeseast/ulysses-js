@@ -15,11 +15,12 @@ import { getAction } from "./utils.mjs";
  * @param {Object} actions An object containing action functions to be called for each feature.
  * This gets merged into default actions (`flyTo`, `fitBounds`, `noop`) so you can override those
  * defaults by adding new functions of the same name.
+ * @param {Array[Function]} plugins An array of plugin functions to apply to this instance
  *
  * @class Ulysses
  */
 class Ulysses {
-	constructor({ map, steps = {}, actions = {} }) {
+	constructor({ map, steps = {}, actions = {}, plugins = [] }) {
 		this.map = map;
 		if (Array.isArray(steps)) {
 			steps = { type: "FeatureCollection", features: steps };
@@ -36,7 +37,10 @@ class Ulysses {
 			previous: [],
 			start: [],
 			end: [],
+			destroy: [],
 		});
+
+		this._plugins = plugins.map(plugin => plugin(this));
 	}
 
 	/**
@@ -171,7 +175,7 @@ class Ulysses {
 	}
 
 	/**
-	 * Fire callbacks for a given event. This is used internally but may be useful in actions.
+	 * Fire callbacks for a given event. This is used internally but may be useful in actions and plugins.
 	 * The `detail` object is passed to callback functions.
 	 *
 	 * @param {String} event
@@ -185,6 +189,36 @@ class Ulysses {
 
 		callbacks.forEach(f => {
 			f.call(this, detail);
+		});
+	}
+
+	// plugins
+	/**
+	 * Apply a plugin function to this Ulysses instance
+	 *
+	 * @param {Function} plugin
+	 * @instance Ulysses
+	 * @returns {ThisType}
+	 */
+	use(plugin) {
+		this._plugins.push(plugin(this));
+	}
+	/**
+	 * Remove event listers and call plugin cleanup functions.
+	 * Triggers a "destroy" event with no data.
+	 *
+	 * @instance Ulysses
+	 */
+	destroy() {
+		this.trigger("destroy");
+		// remove all events
+		this._callbacks = {};
+
+		// run plugin cleanup
+		this._plugins.forEach(f => {
+			if (typeof f === "function") {
+				f();
+			}
 		});
 	}
 }
