@@ -176,6 +176,34 @@
               
                 
                 <li><a
+                  href='#plugins'
+                  class="h5 bold black caps toggle-sibling">
+                  Plugins
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#keys'
+                        class='regular pre-open'>
+                        .keys
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
                   href='#utilities'
                   class="h5 bold black caps toggle-sibling">
                   Utilities
@@ -1333,6 +1361,211 @@ and passed to <a href="https://docs.mapbox.com/mapbox-gl-js/api/#map#fitbounds">
   
   
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='plugins'>
+      Plugins
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>A plugin is a function that adds functionality to a Ulysses instance. Add plugins in one of two ways:</p>
+<pre class='hljs'><span class="hljs-comment">// when creating a story, use the `plugins` array</span>
+<span class="hljs-keyword">const</span> story = <span class="hljs-keyword">new</span> Ulysses({ map, steps, <span class="hljs-attr">plugins</span>: [func, anotherFunc] });
+
+<span class="hljs-comment">// later, with the `use()` method</span>
+story.use(plugin);</pre>
+<p>In each case, the plugin callable takes a <code>Ulysses</code> instance as its only argument. For plugins that take configuration, you can use a function that returns a function. Finally, the plugin function <em>may</em> return a cleanup function, which will be called when a Ulysses instance is destroyed.</p>
+<p>Here's an example plugin that adds keyboad controls:</p>
+<pre class='hljs'><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">keys</span>(<span class="hljs-params">{ previous = <span class="hljs-string">&quot;ArrowLeft&quot;</span>, next = <span class="hljs-string">&quot;ArrowRight&quot;</span> } = {}</span>) </span>{
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">keydown</span>(<span class="hljs-params">{ key }</span>) </span>{
+		<span class="hljs-keyword">if</span> (key === previous) {
+			story.previous();
+		}
+
+		<span class="hljs-keyword">if</span> (key === next) {
+			story.next();
+		}
+
+		<span class="hljs-keyword">if</span> (key.match(<span class="hljs-regexp">/\d{1}/</span>)) {
+			story.step(+e.key);
+		}
+	}
+
+	<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">story</span> =&gt;</span> {
+		<span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&quot;keydown&quot;</span>, keydown);
+
+		<span class="hljs-comment">// on destroy</span>
+		<span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> {
+			<span class="hljs-built_in">window</span>.removeEventListener(<span class="hljs-string">&quot;keydown&quot;</span>, keydown);
+		};
+	};
+}
+
+<span class="hljs-comment">// later</span>
+story.use(keys());
+
+<span class="hljs-comment">// when we&#x27;re done, this will remove the event listener</span>
+story.destroy();</pre>
+<p>The first function -- <code>keys()</code> -- is called to initialize the plugin and returns a function. That function is called with our <code>Ulysses</code> instance. When the story is eventually destroyed (for example, when routing to a new URL in a single-page application), the final cleanup function will remove event listers on the <code>window</code>.</p>
+
+    <div class='pre p1 fill-light mt0'>Plugins</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='keys'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>keys(options)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Add keyboard controls to a story. By default, this adds listeners for the
+left and right keys, stepping backward and forward, respectively. Using the
+numeric keys 0 - 9 will go to those steps.</p>
+<p>Usage:</p>
+<pre class='hljs'><span class="hljs-keyword">import</span> keys <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;ulysses/plugins/keys&quot;</span>
+
+story.use(keys())</pre>
+<p>See <a href="./examples/fires.html">Every fire in 2018</a></p>
+
+    <div class='pre p1 fill-light mt0'>keys(options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+            = <code>{}</code>)</code>
+	    [{ previous = "ArrowLeft", next = "ArrowRight" }={}]
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.previous</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>
+  
+    (default <code>&quot;ArrowLeft&quot;</code>)
+  </td>
+  <td class='break-word'><span>Use this key to go to the previous step. Default: 
+<code>ArrowLeft</code>
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.next</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></code>
+  
+    (default <code>&quot;ArrowRight&quot;</code>)
+  </td>
+  <td class='break-word'><span>Use this key to go to the next step. Default: 
+<code>ArrowRight</code>
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
   
 
   

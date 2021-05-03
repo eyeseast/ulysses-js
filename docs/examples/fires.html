@@ -33,6 +33,7 @@
 
 		<script type="module">
 			import Ulysses from "./ulysses/index.esm.js";
+			import keys from "./ulysses/plugins/keys.mjs";
 			import Legend from "./legend.js";
 
 			mapboxgl.accessToken =
@@ -49,27 +50,13 @@
 					`<p>Use left/right arrow keys to see the 10 largest fires of 2018</p>`
 				);
 
-			const story = (window.story = new Ulysses({ map, steps: [] }));
+			const story = (window.story = new Ulysses({ map, steps: [], plugins: [keys()] }));
 
 			story.on("step", e => {
 				const p = e.feature.properties;
 
 				legend.setContent(`<h3>${p.incidentna}</h3>
 				<p><strong>Area burned</strong>: ${p.gisacres.toLocaleString()} acres</p>`);
-			});
-
-			window.addEventListener("keydown", e => {
-				if (e.key === "ArrowLeft") {
-					story.previous();
-				}
-
-				if (e.key === "ArrowRight") {
-					story.next();
-				}
-
-				if (e.key.match(/\d{1}/)) {
-					story.step(+e.key);
-				}
 			});
 
 			fetch("./data/fires-2018.json")
