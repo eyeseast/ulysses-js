@@ -6,9 +6,9 @@
  *
  * Usage:
  * ```js
- * import keys from "ulysses/plugins/keys"
+ * import keys from "ulysses/plugins/keys.mjs"
  *
- * story.use(keys())
+ * story.use(keys({ previous: "ArrowLeft", next: "ArrowRight" }))
  * ```
  *
  * See [Every fire in 2018](./examples/fires.html)
