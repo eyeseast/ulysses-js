@@ -23,6 +23,8 @@ Note that both the `next` and `previous` events fire _before_ any actions are tr
 
 **end**: Fires after the last step. No additional data is included.
 
+**destroy**: Fires when `story.destroy()` method is called, just before removing event listers and running plugin cleanup functions. No additional data is included.
+
 ### Custom events
 
 It's possible to define custom events. For example, an action might trigger a custom event to signal that it's finished, and a callback can listen for it.

@@ -1,6 +1,27 @@
+import fs from "fs";
+import path from "path";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
 import pkg from "./package.json";
+
+const pluginsOutput = "dist/ulysses/plugins";
+
+const plugins = fs.readdirSync("src/plugins").map(filename => {
+	const name = path.basename(filename, ".mjs");
+	return {
+		input: `src/plugins/${filename}`,
+		output: [
+			{ file: `${pluginsOutput}/${name}.mjs`, format: "es" },
+			{ file: `${pluginsOutput}/${name}.cjs`, format: "cjs" },
+			{
+				file: `${pluginsOutput}/${name}.umd.js`,
+				format: "umd",
+				name: `Ulysses.plugins.${name}`,
+			},
+		],
+		plugins: [resolve(), commonjs()],
+	};
+});
 
 export default [
 	// browser-friendly UMD build
@@ -30,8 +51,10 @@ export default [
 		output: [
 			{ file: pkg.main, format: "cjs" },
 			{ file: pkg.module, format: "es" },
-			{ file: "docs/examples/ulysses.esm.js" }, // for examples to use
 		],
 		plugins: [resolve(), commonjs()],
 	},
+
+	// plugins
+	...plugins,
 ];

@@ -33,7 +33,8 @@
 		<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.js"></script>
 
 		<script type="module">
-			import Ulysses from "./ulysses.esm.js";
+			import Ulysses from "./ulysses/index.esm.js";
+			import timer from "./ulysses/plugins/timer.mjs";
 			import Legend from "./legend.js";
 
 			mapboxgl.accessToken =
@@ -47,12 +48,19 @@
 				maxZoom: 15,
 			});
 
-			const legend = new Legend().addTo(map, "top-left");
+			const legend = new Legend()
+				.addTo(map, "top-left")
+				.setContent(`<p>Showing every In-N-Out location.</p>`);
 
 			const story = (window.story = new Ulysses({ map }));
 
-			story.on("start", e => {
+			story.use(timer({ duration: 5000, start: false }));
+			story.on("timer.start", e => {
 				console.log("Playing story");
+			});
+
+			story.on("timer.stop", e => {
+				console.log("Stopping story");
 			});
 
 			story.on("step", e => {
@@ -67,12 +75,6 @@ ${p["addr:city"]}, ${p["addr:state"]} ${p["addr:postcode"]}<br>
 <p>Press [space] to stop/start map movement</p>`);
 			});
 
-			window.addEventListener("keydown", e => {
-				if (e.code === "Space") {
-					story._interval ? stop(story) : start(story);
-				}
-			});
-
 			fetch("./data/innout.geojson")
 				.then(r => r.json())
 				.then(steps => {
@@ -81,21 +83,8 @@ ${p["addr:city"]}, ${p["addr:state"]} ${p["addr:postcode"]}<br>
 					story.steps = steps;
 
 					addMarkers(map, steps);
-					start(story);
+					story.start();
 				});
-
-			function start(story, duration = 7000) {
-				story.next();
-				story._interval = setInterval(() => {
-					story.next();
-				}, duration);
-			}
-
-			function stop(story) {
-				console.log("Pausing story");
-				clearInterval(story._interval);
-				delete story._interval;
-			}
 
 			function addMarkers(map, fc) {
 				fc.features.forEach(f => {

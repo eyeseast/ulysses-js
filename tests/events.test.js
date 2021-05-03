@@ -100,6 +100,15 @@ describe("tests for events", () => {
 		expect(ended).toBe(true);
 	});
 
+	test("listen for destroy", () => {
+		let destroyed = false;
+		story.on("destroy", () => {
+			destroyed = true;
+		});
+		story.destroy();
+		expect(destroyed).toBe(true);
+	});
+
 	test("create and listen for a custom event", () => {
 		let success = false;
 
