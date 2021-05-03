@@ -13,6 +13,7 @@
     "documentation": "^13.2.5",
     "esm": "^3.2.25",
     "jest": "^26.4.2",
+    "npm-run-all": "^4.1.5",
     "rollup": "^1.32.1",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.1.0",
@@ -25,8 +26,10 @@
     "pretest": "npm run build",
     "prepublish": "npm run build",
     "start": "serve -n docs/",
-    "docs": "documentation build -c documentation.yml -f html -o docs src/** src/plugins/*.js",
-    "docs:dev": "documentation serve -c documentation.yml -w src/** -w src/plugins/*.js -w docs/*.md"
+    "docs:build": "documentation build -c documentation.yml -f html -o docs src/** src/plugins/*.js",
+    "docs:dev": "documentation serve -c documentation.yml -w src/** -w src/plugins/*.js -w docs/*.md",
+    "docs": "run-s build docs:build examples",
+    "examples": "cp -r dist/ulysses docs/examples/ulysses"
   },
   "files": [
     "dist"

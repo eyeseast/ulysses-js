@@ -193,6 +193,12 @@
                         .keys
                       </a></li>
                     
+                      <li><a
+                        href='#timer'
+                        class='regular pre-open'>
+                        .timer
+                      </a></li>
+                    
                     </ul>
                   
                   
@@ -233,16 +239,6 @@
                   
                   
                 </div>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#timer'
-                  class="">
-                  timer
-                  
-                </a>
                 
                 </li>
               
@@ -1505,9 +1501,9 @@ story.destroy();</pre>
 left and right keys, stepping backward and forward, respectively. Using the
 numeric keys 0 - 9 will go to those steps.</p>
 <p>Usage:</p>
-<pre class='hljs'><span class="hljs-keyword">import</span> keys <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;ulysses/plugins/keys&quot;</span>
+<pre class='hljs'><span class="hljs-keyword">import</span> keys <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;ulysses/plugins/keys.mjs&quot;</span>
 
-story.use(keys())</pre>
+story.use(keys({ <span class="hljs-attr">previous</span>: <span class="hljs-string">&quot;ArrowLeft&quot;</span>, <span class="hljs-attr">next</span>: <span class="hljs-string">&quot;ArrowRight&quot;</span> }))</pre>
 <p>See <a href="./examples/fires.html">Every fire in 2018</a></p>
 
     <div class='pre p1 fill-light mt0'>keys(options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
@@ -1565,6 +1561,135 @@ story.use(keys())</pre>
   </td>
   <td class='break-word'><span>Use this key to go to the next step. Default: 
 <code>ArrowRight</code>
+</span></td>
+</tr>
+
+
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='timer'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>timer(options)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Add a timer that advances the map every <code>duration</code> seconds.</p>
+<p>Usage:</p>
+<pre class='hljs'><span class="hljs-keyword">import</span> timer <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;ulysses/plugins/timer.mjs&quot;</span>
+
+story.use(timer({ <span class="hljs-attr">duration</span>: <span class="hljs-number">5000</span>, <span class="hljs-attr">toggle</span>: <span class="hljs-string">&quot;Space&quot;</span>, <span class="hljs-attr">start</span>: <span class="hljs-literal">true</span> }))</pre>
+<p>This plugin adds additional methods to a Ulysses instance:</p>
+<ul>
+<li><code>Ulysses#start()</code> - Start the timer</li>
+<li><code>Ulysses#stop()</code> - Stop the timer</li>
+<li><code>Ulysses#toggle()</code> - Stop or start, depending on current state</li>
+</ul>
+<p>Each of these emits an event -- <code>timer.start</code>, <code>timer.stop</code>, <code>timer.toggle</code> --
+that can be used to coordinate other actions.</p>
+
+    <div class='pre p1 fill-light mt0'>timer(options: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+            = <code>{}</code>)</code>
+	    [{ duration, toggle = "Space" }={}]
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.duration</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></code>
+  
+    (default <code>5000</code>)
+  </td>
+  <td class='break-word'><span>Time between steps, in milliseconds (default: 5000)
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.toggle</span> <code class='quiet'>Space</code>
+  
+    (default <code>&quot;Space&quot;</code>)
+  </td>
+  <td class='break-word'><span>Key to toggle starting and stopping the timer (default: 
+<code>"Space"</code>
+)
+</span></td>
+</tr>
+
+
+              
+                <tr>
+  <td class='break-word'><span class='code bold'>options.start</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>
+  
+    (default <code>true</code>)
+  </td>
+  <td class='break-word'><span>Start the timer immediately. If false, call 
+<code>story.start()</code>
+ to begin.
 </span></td>
 </tr>
 
@@ -1844,116 +1969,6 @@ a map and the current feature in view.
     </div>
   
 </div>
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='timer'>
-      timer
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Add a timer that advances the map every <code>duration</code> seconds</p>
-
-    <div class='pre p1 fill-light mt0'>timer($0: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>$0</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
-            = <code>{}</code>)</code>
-	    
-          </div>
-          
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>$0.duration</span> <code class='quiet'>any</code>
-  
-    (default <code>5000</code>)
-  </td>
-  <td class='break-word'><span></span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>$0.toggle</span> <code class='quiet'>any</code>
-  
-    (default <code>&quot;Space&quot;</code>)
-  </td>
-  <td class='break-word'><span></span></td>
-</tr>
-
-
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>$0.start</span> <code class='quiet'>any</code>
-  
-    (default <code>true</code>)
-  </td>
-  <td class='break-word'><span></span></td>
-</tr>
-
-
-              
-            </tbody>
-          </table>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
   
 
