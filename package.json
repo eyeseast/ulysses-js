@@ -29,7 +29,7 @@
     "docs:build": "documentation build -c documentation.yml -f html -o docs src/** src/plugins/*.js",
     "docs:dev": "documentation serve -c documentation.yml -w src/** -w src/plugins/*.js -w docs/*.md",
     "docs": "run-s build docs:build examples",
-    "examples": "cp -r dist/ulysses docs/examples/ulysses"
+    "examples": "cp -r dist/ulysses docs/examples/"
   },
   "files": [
     "dist"

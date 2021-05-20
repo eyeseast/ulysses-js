@@ -14,21 +14,21 @@ Here's an example plugin that adds keyboad controls:
 
 ```js
 export default function keys({ previous = "ArrowLeft", next = "ArrowRight" } = {}) {
-	function keydown({ key }) {
-		if (key === previous) {
-			story.previous();
-		}
-
-		if (key === next) {
-			story.next();
-		}
-
-		if (key.match(/\d{1}/)) {
-			story.step(+e.key);
-		}
-	}
-
 	return story => {
+		function keydown({ key }) {
+			if (key === previous) {
+				story.previous();
+			}
+
+			if (key === next) {
+				story.next();
+			}
+
+			if (key.match(/\d{1}/)) {
+				story.step(+e.key);
+			}
+		}
+
 		window.addEventListener("keydown", keydown);
 
 		// on destroy
