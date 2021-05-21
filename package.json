@@ -1,6 +1,6 @@
 {
   "name": "ulysses-js",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "license": "MIT",
   "main": "dist/ulysses/index.cjs.js",
   "module": "dist/ulysses/index.esm.js",
