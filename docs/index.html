@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset='utf-8'>
-  <title>ulysses-js 1.3.0 | Documentation</title>
+  <title>ulysses-js 1.3.2 | Documentation</title>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' rel='stylesheet'>
   <link href='assets/style.css' rel='stylesheet'>
@@ -14,7 +14,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>ulysses-js</h3>
-          <div class='mb1'><code>1.3.0</code></div>
+          <div class='mb1'><code>1.3.2</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -239,6 +239,16 @@
                   
                   
                 </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#scroll'
+                  class="">
+                  scroll
+                  
+                </a>
                 
                 </li>
               
@@ -1045,14 +1055,14 @@ Triggers a "destroy" event with no data.</p>
 
   
     <h3><a href="./examples/fires.html">The biggest fires of 2018</a></h3>
-<p>Use the left and right arrow keys to move through the 10 largest
-wildfires for 2018.</p>
-<p>Use numbers 0 through 9 to jump to a specific
-fire.</p>
+<p>Use the left and right arrow keys to move through the 10 largest wildfires for 2018.</p>
+<p>Use numbers 0 through 9 to jump to a specific fire.</p>
 <h3><a href="./examples/innout.html">Every In-N-Out</a></h3>
-<p>Jump to a new In-N-Out location every few seconds. Hit the spacebar to
-stop and start.</p>
+<p>Jump to a new In-N-Out location every few seconds. Hit the spacebar to stop and start.</p>
 <p>Source: <a href="https://github.com/alltheplaces/alltheplaces">All the Places</a></p>
+<h3><a href="./examples/odyssey.html">The Odyssey</a></h3>
+<p>A scrollable story depicting the locations in Homer's Odyssey.</p>
+<p>Source: <a href="https://www.arcgis.com/apps/MapTour/index.html?appid=4966f41a90c84a199a19057160322ee4">ESRI Story Map</a></p>
 
   
 </section></div>
@@ -1427,21 +1437,21 @@ story.use(plugin);</pre>
 <p>In each case, the plugin callable takes a <code>Ulysses</code> instance as its only argument. For plugins that take configuration, you can use a function that returns a function. Finally, the plugin function <em>may</em> return a cleanup function, which will be called when a Ulysses instance is destroyed.</p>
 <p>Here's an example plugin that adds keyboad controls:</p>
 <pre class='hljs'><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">keys</span>(<span class="hljs-params">{ previous = <span class="hljs-string">&quot;ArrowLeft&quot;</span>, next = <span class="hljs-string">&quot;ArrowRight&quot;</span> } = {}</span>) </span>{
-	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">keydown</span>(<span class="hljs-params">{ key }</span>) </span>{
-		<span class="hljs-keyword">if</span> (key === previous) {
-			story.previous();
-		}
-
-		<span class="hljs-keyword">if</span> (key === next) {
-			story.next();
-		}
-
-		<span class="hljs-keyword">if</span> (key.match(<span class="hljs-regexp">/\d{1}/</span>)) {
-			story.step(+e.key);
-		}
-	}
-
 	<span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">story</span> =&gt;</span> {
+		<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">keydown</span>(<span class="hljs-params">{ key }</span>) </span>{
+			<span class="hljs-keyword">if</span> (key === previous) {
+				story.previous();
+			}
+
+			<span class="hljs-keyword">if</span> (key === next) {
+				story.next();
+			}
+
+			<span class="hljs-keyword">if</span> (key.match(<span class="hljs-regexp">/\d{1}/</span>)) {
+				story.step(+e.key);
+			}
+		}
+
 		<span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&quot;keydown&quot;</span>, keydown);
 
 		<span class="hljs-comment">// on destroy</span>
@@ -1969,6 +1979,78 @@ a map and the current feature in view.
     </div>
   
 </div>
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='scroll'>
+      scroll
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Add scroll interaction to a Ulysses story using scrollama.
+As each element scrolls into view, the story will trigger a step.</p>
+<p>Any options given during initialization are passed through to scrollama.
+See <a href="https://github.com/russellgoldenberg/scrollama#scrollamasetupoptions">scrollama's API documentation</a>
+for a full list of available options.</p>
+<p>Usage:</p>
+<pre class='hljs'><span class="hljs-keyword">import</span> scroll <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;ulysses/plugins/scroll.mjs&quot;</span>
+
+story.use(scroll({ <span class="hljs-attr">step</span>: <span class="hljs-string">&quot;.step&quot;</span> }))</pre>
+
+    <div class='pre p1 fill-light mt0'>scroll(options: scrollama.ScrollamaOptions)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(scrollama.ScrollamaOptions
+            = <code>{}</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
 

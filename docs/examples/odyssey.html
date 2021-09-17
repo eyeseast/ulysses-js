@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>The Odyssey</title>
+
+		<link
+			href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.css"
+			rel="stylesheet"
+		/>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+
+			#map {
+				position: fixed;
+				top: 0;
+				bottom: 0;
+				width: 100%;
+				z-index: -1;
+			}
+
+			#steps {
+				z-index: 10;
+				max-width: 400px;
+				padding: 1em;
+			}
+
+			.intro,
+			.step {
+				background-color: rgba(0, 0, 0, 0.75);
+				color: white;
+				margin-top: 25vh;
+				margin-bottom: 75vh;
+				padding: 1em;
+			}
+
+			.intro a,
+			.intro a:visited {
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="map"></div>
+		<div id="steps">
+			<div class="intro">
+				<h1>Scroll to explore Homer's Odyssey</h1>
+				<p>
+					This example is based on an
+					<a
+						href="https://www.arcgis.com/apps/MapTour/index.html?appid=4966f41a90c84a199a19057160322ee4"
+						target="_blank"
+						rel="noopener noreferrer"
+						>ESRI Story Map</a
+					>
+					depicting Odysseus' route through the Mediterranean after the Trojan War. All
+					text and locations below are copied from that project.
+				</p>
+			</div>
+		</div>
+
+		<template id="step">
+			<div class="step">
+				<h2>{name}</h2>
+				<p>{description}</p>
+			</div>
+		</template>
+
+		<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.js"></script>
+
+		<script type="module">
+			import Ulysses from "./ulysses/index.esm.js";
+			import scroll from "./ulysses/plugins/scroll.mjs";
+
+			mapboxgl.accessToken =
+				"pk.eyJ1IjoidXNhdG9kYXlncmFwaGljcyIsImEiOiJ0S3BGdndrIn0.5juF5LWz_GRcndian32tZA";
+
+			let map, story, steps;
+
+			function showAll(map, feature) {
+				map.fitBounds(steps.bbox);
+			}
+
+			async function render() {
+				steps = await fetch("./data/odyssey.geojson").then(r => r.json());
+
+				const template = document.querySelector("#step");
+				const container = document.querySelector("#steps");
+
+				steps.features.forEach(feature => {
+					const clone = template.content.cloneNode(true);
+
+					clone.querySelector("h2").textContent = feature.properties.name;
+					clone.querySelector("p").textContent = feature.properties.description;
+
+					container.appendChild(clone);
+				});
+
+				map = new mapboxgl.Map({
+					container: "map", // container id
+					style: "mapbox://styles/mapbox/streets-v11", // stylesheet location
+					bounds: steps.bbox, // starting position
+					zoom: 6, // starting zoom
+					maxZoom: 9,
+					interactive: false,
+				});
+
+				story = new Ulysses({ map, steps, actions: { showAll } });
+				story.use(scroll({ step: ".step", debug: true }));
+			}
+
+			render().catch(console.error);
+
+			window.map = map;
+			window.story = story;
+			window.steps = steps;
+		</script>
+	</body>
+</html>

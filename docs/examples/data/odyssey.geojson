@@ -1,0 +1,229 @@
+{
+	"type": "FeatureCollection",
+	"bbox": [1.389823632838151, 33.09567888532146, 48.45129062543201, 40.87473431878711],
+	"features": [
+		{
+			"type": "Feature",
+			"id": 1,
+			"properties": {
+				"name": "The Odyssey by Homer",
+				"description": "The Odyssey by Homer tells the story of the hero Odysseus' journey from Troy to Ithaca. The trip should have taken a few weeks but instead lasted more than ten years.",
+				"pic_url": "http://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Homer_British_Museum.jpg/476px-Homer_British_Museum.jpg",
+				"thumb_url": "http://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Homer_British_Museum.jpg/476px-Homer_British_Museum.jpg",
+				"action": "showAll"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [48.45129062543201, 33.09567888532146]
+			}
+		},
+		{
+			"type": "Feature",
+			"id": 2,
+			"properties": {
+				"name": "Troy",
+				"description": "Odysseus fought in the Trojan War for 10 years. After the fall of Troy, he left for his home in Ithaca, a journey which should have taken only a few weeks. It was to take ten years.",
+				"icon_color": "g",
+				"pic_url": "http://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Louis_de_Silvestre_Odysseus_verlangt_von_Andromache_den_Knaben_Astyanax_1708.jpg/1165px-Louis_de_Silvestre_Odysseus_verlangt_von_Andromache_den_Knaben_Astyanax_1708.jpg",
+				"thumb_url": "http://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Louis_de_Silvestre_Odysseus_verlangt_von_Andromache_den_Knaben_Astyanax_1708.jpg/1165px-Louis_de_Silvestre_Odysseus_verlangt_von_Andromache_den_Knaben_Astyanax_1708.jpg"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [26.225791650642417, 39.969905755978445]
+			}
+		},
+		{
+			"type": "Feature",
+			"id": 3,
+			"properties": {
+				"name": "Ismara (Cicones)",
+				"description": "After Odysseus and his men depart from Troy, they are greeted by friendly and calm waters. The crew made for Ismaros in the land of the Cicones. Odysseus and his men looted the city and robbed it of all its goods. Odysseus wisely told his men to board the ships quickly but they refused and fell asleep on the beach. The next morning, the Cicones returned with their fierce kinsmen from the mountains. Odysseus and his men fled to the ships as fast as they could but they lost many men still. On leaving Ismaros, Odysseus and his twelve ships were driven off course by fierce storms.",
+				"icon_color": "p",
+				"pic_url": "http://www.tellmeomuse.com/images/art/cicones_enlarged.jpg",
+				"thumb_url": "http://www.tellmeomuse.com/images/sized/images/art/cicones_enlarged-190x244.jpg"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [25.93877382768694, 40.86642657187383]
+			}
+		},
+		{
+			"type": "Feature",
+			"id": 4,
+			"properties": {
+				"name": "The Island of Lotus Eaters",
+				"description": "When Odysseus and his men landed on the island of the Lotus-Eaters, Odysseus sent out a scouting party who ate lotus fruit with the natives. This caused them to fall sleep and stop caring about ever going home. Odysseus went after the scouting party and dragged them back against their will to the ship and set sail.",
+				"icon_color": "p",
+				"pic_url": "http://farm7.staticflickr.com/6213/6407019255_83104f90d2.jpg",
+				"thumb_url": "http://farm7.staticflickr.com/6213/6407019255_83104f90d2.jpg"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [10.283256249580045, 33.937258866822205]
+			}
+		},
+		{
+			"type": "Feature",
+			"id": 5,
+			"properties": {
+				"name": "The island of Polyphemus (Cyclops)",
+				"description": "Polyphemus catches Odysseus and his men, and devours two of them each day. Odysseus tricks Polyphemus by giving him intoxicating wine and then blinds him with a wooden stake. After this episode, Odysseus is haunted by the wrath of Poseidon, who then curses Odysseus to wander the sea for ten years, during which he would lose all his crew and return home through the aid of others.",
+				"icon_color": "p",
+				"pic_url": "http://farm7.staticflickr.com/6054/6407019537_bef9e4c8df_z.jpg",
+				"thumb_url": "http://farm7.staticflickr.com/6054/6407019537_bef9e4c8df_z.jpg"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [13.568168359707087, 37.311903039119656]
+			}
+		},
+		{
+			"type": "Feature",
+			"id": 6,
+			"properties": {
+				"name": "Aeolia",
+				"description": "Odysseus stopped at Aiolia, home of Aeolus, the god of the winds. Aeolus gave them hospitality for a month and provided for a west wind to carry them home. Aeolus gave Odysseus a leather bag containing all the winds, except the west wind, a gift that should have ensured a safe return home. However, the sailors foolishly opened the bag while Odysseus slept, thinking that it contained gold. All of the winds flew out and the resulting storm drove the ships back the way they had come, just as Ithaca came into sight. They were blown back to Aiolia, where Aeolus refused to provide any further help because he thought Odysseus was unlucky. ",
+				"icon_color": "p",
+				"pic_url": "http://farm8.staticflickr.com/7017/6407017777_9be7daee3c.jpg",
+				"thumb_url": "http://farm8.staticflickr.com/7017/6407017777_9be7daee3c.jpg"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [12.019096094184139, 36.82098795010104]
+			}
+		},
+		{
+			"type": "Feature",
+			"id": 7,
+			"properties": {
+				"name": "Telepylos",
+				"description": "They came to Telepylos, the stronghold of Lamos, king of the Laestrygonians. These people attacked the fleet with boulders, sinking all but one of the ships and killing hundreds of Odysseus’s men.",
+				"icon_color": "p",
+				"pic_url": "http://upload.wikimedia.org/wikipedia/commons/0/0a/Odysseus_bei_den_Laestrygonen.jpg",
+				"thumb_url": "http://upload.wikimedia.org/wikipedia/commons/0/0a/Odysseus_bei_den_Laestrygonen.jpg"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [8.737798687081094, 36.96116936505294]
+			}
+		},
+		{
+			"type": "Feature",
+			"id": 8,
+			"properties": {
+				"name": "Aeaea (Circe)",
+				"description": "Odysseus sailed on and visited the witch-goddess Circe, who turned all of Odysseus’s men into pigs after feeding them cheese and wine. Hermes warned Odysseus about Circe and gave Odysseus a drug called moly which gave him resistance to Circe’s magic. Circe, being attracted to Odysseus' resistance, agreed to bargain with him. She agreed to change his men back to their human form in exchange for Odysseus' love. They remained with her on the island for one year, while they feasted and drank.",
+				"icon_color": "p",
+				"pic_url": "http://upload.wikimedia.org/wikipedia/commons/e/e4/Salomon_de_Bray_-_Odysseus_and_Circe_-_WGA03144.jpg",
+				"thumb_url": "http://upload.wikimedia.org/wikipedia/commons/e/e4/Salomon_de_Bray_-_Odysseus_and_Circe_-_WGA03144.jpg"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [2.795396562475138, 39.70926589002353]
+			}
+		},
+		{
+			"type": "Feature",
+			"id": 9,
+			"properties": {
+				"name": "The Underworld",
+				"description": "Finally, guided by Circe's instructions, Odysseus and his crew crossed the ocean and reached a harbor at the western edge of the world, where Odysseus sacrificed to the dead and summoned the spirit of the old prophet Tiresias to advise him of how to appease the gods upon his return home.",
+				"icon_color": "p",
+				"pic_url": "http://farm7.staticflickr.com/6224/6407019875_748c3cd0dd.jpg",
+				"thumb_url": "http://farm7.staticflickr.com/6224/6407019875_748c3cd0dd.jpg",
+				"action": "noop"
+			},
+			"geometry": null
+		},
+		{
+			"type": "Feature",
+			"id": 10,
+			"properties": {
+				"name": "The Sirens",
+				"description": "Odysseus escaped the Sirens by having all his sailors plug their ears with beeswax and tie him to the mast. He was curious as to what the Sirens sounded like. When he heard their beautiful song, he ordered the sailors to untie him but they ignored him. When they had passed out of earshot, Odysseus stopped thrashing about and calmed down, and was released. ",
+				"icon_color": "p",
+				"pic_url": "http://media1.shmoop.com/media/images/original/sirens.jpg",
+				"thumb_url": "http://www.shmoop.com/media/images/thumbs/sirens.jpg"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [8.525443749670348, 39.29460810577008]
+			}
+		},
+		{
+			"type": "Feature",
+			"id": 11,
+			"properties": {
+				"name": "Scylla and Charybdis",
+				"description": "Odysseus was given advice by Circe to sail closer to the six-headed monster Scylla, for the whirlpool Charybdis could drown his whole ship. Odysseus successfully navigates his ship past Scylla and Charybdis, but Scylla manages to catch six of his men, devouring them alive.",
+				"icon_color": "p",
+				"pic_url": "http://farm8.staticflickr.com/7011/6407020531_a222810371_z.jpg",
+				"thumb_url": "http://farm8.staticflickr.com/7011/6407020531_a222810371_z.jpg"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [15.534721094003533, 38.23671846818483]
+			}
+		},
+		{
+			"type": "Feature",
+			"id": 12,
+			"properties": {
+				"name": "Thrinacia (Helios and his daughters)",
+				"description": "Finally, Odysseus and his surviving crew landed on an island, Thrinacia, sacred to Helios, where he kept sacred cattle. Though Odysseus warned his men not to (as Tiresias had told him), they killed and ate some of the cattle. As guardians of the island, Helios’s daughters told their father. Helios destroyed the ship and all the men save Odysseus.",
+				"icon_color": "p",
+				"pic_url": "http://upload.wikimedia.org/wikipedia/commons/f/fb/Pellegrino_Tibaldi_001.jpg",
+				"thumb_url": "http://upload.wikimedia.org/wikipedia/commons/f/fb/Pellegrino_Tibaldi_001.jpg"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [14.210868554346536, 36.0764580520468]
+			}
+		},
+		{
+			"type": "Feature",
+			"id": 13,
+			"properties": {
+				"name": "Ogygia (Calypso)",
+				"description": "Odysseus was washed ashore on Ogygia, where the nymph Kalypso (Calypso) lived. She made him her lover for seven years and would not let him leave, promising him immortality if he stayed. On behalf of Athena, Zeus intervened and sent Hermes to tell Kalypso to let Odysseus go.",
+				"icon_color": "p",
+				"pic_url": "http://upload.wikimedia.org/wikipedia/commons/c/c0/Odysseus_and_Calypso.jpg",
+				"thumb_url": "http://upload.wikimedia.org/wikipedia/commons/c/c0/Odysseus_and_Calypso.jpg"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [1.389823632838151, 39.08599161228987]
+			}
+		},
+		{
+			"type": "Feature",
+			"id": 14,
+			"properties": {
+				"name": "Scheria (Nausicaa)",
+				"description": "Odysseus left Ogygia on a small raft furnished with provisions of water, wine and food by Kalypso, only to be hit by a storm and washed up on the island of Scheria and found by Nausicaa, daughter of King Alcinous and Queen Arete of the Phaeacians, who entertained him well and escorted him to Ithaca. On the twentieth day of sailing he arrived at his home in Ithaca.",
+				"icon_color": "p",
+				"pic_url": "http://upload.wikimedia.org/wikipedia/commons/5/51/Odysseus_and_Nausicaa.jpg",
+				"thumb_url": "http://upload.wikimedia.org/wikipedia/commons/5/51/Odysseus_and_Nausicaa.jpg"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [8.833060937424037, 40.87473431878711]
+			}
+		},
+		{
+			"type": "Feature",
+			"id": 15,
+			"properties": {
+				"name": "Ithaca",
+				"description": "Ten years after he left Troy, Odysseus arrives home in Ithaca.",
+				"icon_color": "r",
+				"pic_url": "http://upload.wikimedia.org/wikipedia/commons/1/1b/Pinturicchio%2C_Return_of_Odysseus.jpg",
+				"thumb_url": "http://upload.wikimedia.org/wikipedia/commons/1/1b/Pinturicchio%2C_Return_of_Odysseus.jpg"
+			},
+			"geometry": {
+				"type": "Point",
+				"coordinates": [20.673576074595733, 38.420936242375916]
+			}
+		}
+	]
+}
