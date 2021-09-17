@@ -16,11 +16,12 @@ toc:
       - fitBounds
       - noop
 
-  - name: Plugins
+  - name: Included plugins
     file: docs/plugins.md
     children:
       - keys
       - timer
+      - scroll
 
   - name: Utilities
     description: These might help when defining your own actions.

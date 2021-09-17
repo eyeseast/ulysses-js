@@ -1,6 +1,6 @@
 {
   "name": "ulysses-js",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "license": "MIT",
   "main": "dist/ulysses/index.cjs.js",
   "module": "dist/ulysses/index.esm.js",
@@ -33,5 +33,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "optionalDependencies": {
+    "scrollama": "^2.2.2"
+  }
 }
