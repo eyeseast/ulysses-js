@@ -176,9 +176,9 @@
               
                 
                 <li><a
-                  href='#plugins'
+                  href='#included-plugins'
                   class="h5 bold black caps toggle-sibling">
-                  Plugins
+                  Included plugins
                   <span class='icon'>▸</span>
                 </a>
                 
@@ -197,6 +197,12 @@
                         href='#timer'
                         class='regular pre-open'>
                         .timer
+                      </a></li>
+                    
+                      <li><a
+                        href='#scroll'
+                        class='regular pre-open'>
+                        .scroll
                       </a></li>
                     
                     </ul>
@@ -239,16 +245,6 @@
                   
                   
                 </div>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#scroll'
-                  class="">
-                  scroll
-                  
-                </a>
                 
                 </li>
               
@@ -1420,8 +1416,8 @@ and passed to <a href="https://docs.mapbox.com/mapbox-gl-js/api/#map#fitbounds">
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='plugins'>
-      Plugins
+    <h3 class='fl m0' id='included-plugins'>
+      Included plugins
     </h3>
     
     
@@ -1468,7 +1464,7 @@ story.use(keys());
 story.destroy();</pre>
 <p>The first function -- <code>keys()</code> -- is called to initialize the plugin and returns a function. That function is called with our <code>Ulysses</code> instance. When the story is eventually destroyed (for example, when routing to a new URL in a single-page application), the final cleanup function will remove event listers on the <code>window</code>.</p>
 
-    <div class='pre p1 fill-light mt0'>Plugins</div>
+    <div class='pre p1 fill-light mt0'>Included plugins</div>
   
   
 
@@ -1707,6 +1703,77 @@ that can be used to coordinate other actions.</p>
               
             </tbody>
           </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='scroll'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>scroll(options)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Add scroll interaction to a Ulysses story using scrollama.
+As each element scrolls into view, the story will trigger a step.</p>
+<p>Any options given during initialization are passed through to scrollama.
+See <a href="https://github.com/russellgoldenberg/scrollama#scrollamasetupoptions">scrollama's API documentation</a>
+for a full list of available options.</p>
+<p>Usage:</p>
+<pre class='hljs'><span class="hljs-keyword">import</span> scroll <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;ulysses/plugins/scroll.mjs&quot;</span>
+
+story.use(scroll({ <span class="hljs-attr">step</span>: <span class="hljs-string">&quot;.step&quot;</span> }))</pre>
+
+    <div class='pre p1 fill-light mt0'>scroll(options: scrollama.ScrollamaOptions)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(scrollama.ScrollamaOptions
+            = <code>{}</code>)</code>
+	    
+          </div>
           
         </div>
       
@@ -1979,78 +2046,6 @@ a map and the current feature in view.
     </div>
   
 </div>
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='scroll'>
-      scroll
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Add scroll interaction to a Ulysses story using scrollama.
-As each element scrolls into view, the story will trigger a step.</p>
-<p>Any options given during initialization are passed through to scrollama.
-See <a href="https://github.com/russellgoldenberg/scrollama#scrollamasetupoptions">scrollama's API documentation</a>
-for a full list of available options.</p>
-<p>Usage:</p>
-<pre class='hljs'><span class="hljs-keyword">import</span> scroll <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;ulysses/plugins/scroll.mjs&quot;</span>
-
-story.use(scroll({ <span class="hljs-attr">step</span>: <span class="hljs-string">&quot;.step&quot;</span> }))</pre>
-
-    <div class='pre p1 fill-light mt0'>scroll(options: scrollama.ScrollamaOptions)</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>options</span> <code class='quiet'>(scrollama.ScrollamaOptions
-            = <code>{}</code>)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
   
 

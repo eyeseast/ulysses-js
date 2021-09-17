@@ -105,20 +105,24 @@
 					container: "map", // container id
 					style: "mapbox://styles/mapbox/streets-v11", // stylesheet location
 					bounds: steps.bbox, // starting position
-					zoom: 6, // starting zoom
-					maxZoom: 9,
+					zoom: 5, // starting zoom
+					maxZoom: 8,
 					interactive: false,
 				});
 
 				story = new Ulysses({ map, steps, actions: { showAll } });
 				story.use(scroll({ step: ".step", debug: true }));
+
+				story.on("end", () => {
+					showAll(map, {});
+				});
+
+				window.map = map;
+				window.story = story;
+				window.steps = steps;
 			}
 
 			render().catch(console.error);
-
-			window.map = map;
-			window.story = story;
-			window.steps = steps;
 		</script>
 	</body>
 </html>
