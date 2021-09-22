@@ -5,6 +5,17 @@
   "main": "dist/ulysses/index.cjs.js",
   "module": "dist/ulysses/index.esm.js",
   "browser": "dist/ulysses/index.umd.js",
+  "exports": {
+    ".": {
+      "import": "./dist/ulysses/index.esm.js",
+      "require": "./dist/ulysses/index.cjs.js"
+    },
+    "./plugins/*": {
+      "import": "./dist/ulysses/plugins/*.mjs",
+      "require": "./dist/ulysses/plugins/*.cjs"
+    },
+    "./package.json": "./package.json"
+  },
   "peerDependencies": {
     "mapbox-gl": "1.x || 2.x"
   },
