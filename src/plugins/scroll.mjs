@@ -10,9 +10,9 @@ import scrollama from "scrollama";
  *
  * Usage:
  * ```js
- * import scroll from "ulysses/plugins/scroll.mjs"
+ * import scroll from "ulysses-js/plugins/scroll";
  *
- * story.use(scroll({ step: ".step" }))
+ * story.use(scroll({ step: ".step" }));
  * ```
  *
  * @export

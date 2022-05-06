@@ -8,12 +8,12 @@
  *
  * Usage:
  * ```js
- * import keys from "ulysses/plugins/keys.mjs"
+ * import keys from "ulysses-js/plugins/keys";
  *
  * story.use(keys({ previous: "ArrowLeft", next: "ArrowRight" }))
  * ```
  *
- * See [Every fire in 2018](./examples/fires.html)
+ * See [Every fire in 2018](./examples/fires.html);
  *
  * @export
  * @param {Object} options [{ previous = "ArrowLeft", next = "ArrowRight" }={}]

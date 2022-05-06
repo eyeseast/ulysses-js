@@ -6,9 +6,9 @@
  *
  * Usage:
  * ```js
- * import timer from "ulysses/plugins/timer.mjs"
+ * import timer from "ulysses-js/plugins/timer";
  *
- * story.use(timer({ duration: 5000, toggle: "Space", start: true }))
+ * story.use(timer({ duration: 5000, toggle: "Space", start: true }));
  * ```
  * This plugin adds additional methods to a Ulysses instance:
  *
