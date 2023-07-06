@@ -20,14 +20,13 @@
     "mapbox-gl": "1.x || 2.x"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.2",
+    "@rollup/plugin-node-resolve": "^15.1.0",
     "@turf/bbox": "^6.0.1",
     "documentation": "^14.0.1",
     "esm": "^3.2.25",
-    "jest": "^26.4.2",
-    "npm-run-all": "^4.1.5",
-    "rollup": "^1.32.1",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.1.0",
+    "jest": "^29.6.0",
+    "rollup": "^3.26.2",
     "serve": "^14.2.0"
   },
   "scripts": {
@@ -39,7 +38,7 @@
     "start": "serve -n docs/",
     "docs:build": "documentation build -c documentation.yml -f html -o docs src/** src/plugins/*.js",
     "docs:dev": "documentation serve -c documentation.yml -w src/** -w src/plugins/*.js -w docs/*.md",
-    "docs": "run-s build docs:build examples",
+    "docs": "npm run build && npm run docs:build && npm run examples",
     "examples": "cp -r dist/ulysses docs/examples/"
   },
   "files": [
@@ -47,5 +46,6 @@
   ],
   "optionalDependencies": {
     "scrollama": "^2.2.2"
-  }
+  },
+  "type": "module"
 }

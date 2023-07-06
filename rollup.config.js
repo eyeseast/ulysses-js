@@ -1,10 +1,11 @@
-import fs from "fs";
-import path from "path";
-import resolve from "rollup-plugin-node-resolve";
-import commonjs from "rollup-plugin-commonjs";
-import pkg from "./package.json";
+import fs from "node:fs";
+import path from "node:path";
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
 
 const pluginsOutput = "dist/ulysses/plugins";
+
+const pkg = JSON.parse(fs.readFileSync("package.json"));
 
 const plugins = fs.readdirSync("src/plugins").map(filename => {
 	const name = path.basename(filename, ".mjs");
